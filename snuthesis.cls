@@ -193,7 +193,7 @@
 	%% The UK TeX FAQ
 	%% Your 437 Questions Answered
 	%% version 3.19a, date 2009-06-13, p.211.
-	\renewcommand{\abstractname}{초록} %
+	\renewcommand{\abstractname}{국문초록} %
 	%\renewcommand{\alsoname}{see also} % (makeidx package)
 	\renewcommand{\appendixname}{부록} %
 	\renewcommand{\bibname}{참고문헌} % (report,book)
@@ -248,7 +248,7 @@
 	\newcommand{\keywordnamealt}{주요어}
 	\newcommand{\studentnumbername}{Student Number}
 	\newcommand{\studentnumbernamealt}{학번}
-	\newcommand{\abstractnamealt}{초록}
+	\newcommand{\abstractnamealt}{국문초록}
 	\newcommand{\acknowledgementname}{Acknowledgements}
 \fi
 
@@ -738,9 +738,9 @@
 			\normalfont
 			\linespread{1.0}
 			\fontsize{22pt}{22pt}\selectfont
-			\textbf{\abstractname}\par\nobreak
+			\textbf{\abstractname}\par%\nobreak
 		}
-		\vspace{2cm}
+		\vspace{1cm}
 		\@afterheading
 	\fi
 }{%
@@ -781,7 +781,7 @@
 			\fontsize{16pt}{16pt}\selectfont
 			\textbf{\abstractnamealt}\par\nobreak
 		}
-		\vspace{2cm}
+		\vspace{1cm}
 		\@afterheading
 	\fi
 }{%

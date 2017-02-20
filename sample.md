@@ -3,8 +3,10 @@ entitle: "Calculus, Analysis, Mathematical Statistics, \\\ Statistical Computini
 kotitle: "미적분학 해석학 수리통계학 확률의 개념 및 응용, \\\ 전산통계 및 실험 그리고 회귀분석 및 실험" # 국문 제목. 중간에 줄 넘기기를 위해서는 백슬래시 3개가 필요함.
 enabstract: abstract.tex # 영문 초록. 
 koabstract: koabstract.tex # 국문 초록. 
-bibliography: bibliography.bib # 참고문헌. 
+acknowledgement: acknowledgement.tex # 감사의 글. 생략 가능 (파일명 대신 'false'를 적으면 됨.).
+bibliography: bibliography.bib # 참고문헌. 중간에 있는 bibliography 블록을 확인할 것. 
 author: "홍길동" # 작성자.
+enauthor: "Hong Gildong" # 영문 성명.
 authorrun: "홍 길 동"  # 선택 사항. 특정 위치에 이름을 띄어 쓰고자 할 때.
 advisor: "이 교 수"
 graddate: "2018 년 2 월" # 한글. 학위 수여일.
@@ -94,16 +96,24 @@ It would be much clean to white thesis using markdown. e.g., there are some [git
 
 Argh. Why am I doing this? @Nesterov:DoklAkadNaukSssr:1983 \citep{Boyd:ConvexOptimization:2004} \citet{Bertsekas:ConvexOptimizationTheory:2009}
 
-
+<!-- DO NOT REMOVE THE FOLLOWING!!!!!!!! -->
 <!-- references. --> 
 <!-- note: this is how to use comments 
 in a markdown file.-->
+<!-- I know it's not clean... but this is the only way I know at the moment -->
 
-
-\bibliography{bibliography}
-\bibliographystyle{apalike}
+\addcontentsline{toc}{chapter}{\bibname}
+\bibliography{bibliography} <!-- change to your bibliography file name -->
+\bibliographystyle{apalike} <!-- change to your desired bib style -->
 
 \appendix
+<!-- DO NOT REMOVE THE ABOVE!!!!!!!! -->
 
-# 부록?
-...?
+
+# How to use Appendix
+
+Just add appendix here!
+
+
+# Dang it
+dszf

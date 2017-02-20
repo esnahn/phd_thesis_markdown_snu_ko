@@ -15,6 +15,7 @@
 %% tocloft의 옵션을 다르게 지정해야 한다.
 %\usepackage[titles,subfigure]{tocloft} % when you use subfigure package
 \usepackage[titles]{tocloft} % when you don't use subfigure package
+\usepackage{calc}
 \makeatletter % don't delete me
 \if@snu@ko
 	\renewcommand\cftchappresnum{제~}
@@ -34,6 +35,15 @@
 \addtolength{\cftfignumwidth}{\mytmplen}
 \settowidth{\mytmplen}{\bfseries\cfttabpresnum\cfttabaftersnum}
 \addtolength{\cfttabnumwidth}{\mytmplen}
+
+\renewcommand{\cftchappresnum}{\chaptername\space}
+\setlength{\cftchapnumwidth}{\widthof{\textbf{Appendix~999~}}}
+\makeatletter
+\g@addto@macro\appendix{%
+  \addtocontents{toc}{%
+    \protect\renewcommand{\protect\cftchappresnum}{\appendixname\space}%
+  }%
+}
 %% 목차 양식을 변경하는 코드 끝
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -45,6 +55,7 @@
 	\input glyphtounicode\pdfgentounicode=1 %type 1 font사용시
 	%\usepackage[pdftex,unicode]{hyperref} % delete me
 	\usepackage[pdftex]{graphicx}
+  \usepackage{setspace}
 	%\usepackage[pdftex,svgnames]{xcolor}
 \else
 	%\usepackage[dvipdfmx,unicode]{hyperref} % delete me
@@ -128,6 +139,24 @@ $for(committee)${$committee$}$endfor$
 
 \keyword{$if(ko)$$for(kokeyword)$$kokeyword$$sep$, $endfor$$else$$for(enkeyword)$$enkeyword$$sep$, $endfor$$endif$}
 \begin{abstract}
+$if(ko)$$else$
+\begin{center}
+\LARGE
+\begin{spacing}{0.9}
+\textbf{
+$entitle$}
+\end{spacing}
+\end{center}
+\begin{flushright}
+\begin{spacing}{0.9}
+\Large
+$enauthor$ \\
+Department of Statistics \\
+The Graduate School \\
+Seoul National University
+\end{spacing}
+\end{flushright}
+$endif$
 \noindent
 \input{$if(ko)$$koabstract$$else$$enabstract$$endif$}
 \end{abstract}
@@ -158,12 +187,31 @@ $body$
 
 \keywordalt{$if(ko)$$for(enkeyword)$$enkeyword$$sep$, $endfor$$else$$for(kokeyword)$$kokeyword$$sep$, $endfor$$endif$}
 \begin{abstractalt}
+$if(ko)$
+\begin{center}
+\LARGE
+\begin{spacing}{0.9}
+\textbf{
+$entitle$}
+\end{spacing}
+\end{center}
+\begin{flushright}
+\begin{spacing}{0.9}
+\Large
+$enauthor$ \\
+Department of Statistics \\
+The Graduate School \\
+Seoul National University
+\end{spacing}
+\end{flushright}
+$else$$endif$
 \input{$if(ko)$$enabstract$$else$$koabstract$$endif$}
 \end{abstractalt}
 
+$if(acknowledgement)$
 \acknowledgement
-Thanks!
-
+\input{$acknowledgement$}
+$endif$
 
 
 \end{document}
