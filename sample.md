@@ -30,6 +30,8 @@ kokeyword: # 국문 키워드.
 - 병
 - 정
 studentid: "2014-12345" # 학번.
+header-includes:  # header에 넣고 싶은 내용 아무거나. 주로 추가적인 패키지 로딩. 
+- \usepackage{algorithmicx} 
 output: 
   pdf_document:
     citation_package: natbib # 참고문헌 처리 패키지. 여기서는 natbib으로 설정.
