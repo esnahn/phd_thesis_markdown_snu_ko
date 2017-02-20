@@ -141,21 +141,19 @@ $for(committee)${$committee$}$endfor$
 \begin{abstract}
 $if(ko)$$else$
 \begin{center}
-\LARGE
-\begin{spacing}{0.9}
+\fontsize{22pt}{20pt} \selectfont
 \textbf{
 $entitle$}
-\end{spacing}
 \end{center}
+\vspace{0.5cm}
 \begin{flushright}
-\begin{spacing}{0.9}
-\Large
+\fontsize{14pt}{12pt} \selectfont
 $enauthor$ \\
 Department of Statistics \\
 The Graduate School \\
 Seoul National University
-\end{spacing}
 \end{flushright}
+\vspace{0.5cm}
 $endif$
 \noindent
 \input{$if(ko)$$koabstract$$else$$enabstract$$endif$}
@@ -189,20 +187,16 @@ $body$
 \begin{abstractalt}
 $if(ko)$
 \begin{center}
-\LARGE
-\begin{spacing}{0.9}
+\fontsize{22pt}{26pt} \selectfont
 \textbf{
 $entitle$}
-\end{spacing}
 \end{center}
 \begin{flushright}
-\begin{spacing}{0.9}
-\Large
+\fontsize{14pt}{16pt} \selectfont
 $enauthor$ \\
 Department of Statistics \\
 The Graduate School \\
 Seoul National University
-\end{spacing}
 \end{flushright}
 $else$$endif$
 \input{$if(ko)$$enabstract$$else$$koabstract$$endif$}

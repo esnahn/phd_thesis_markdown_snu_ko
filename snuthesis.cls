@@ -737,10 +737,10 @@
 			\centering
 			\normalfont
 			\linespread{1.0}
-			\fontsize{22pt}{22pt}\selectfont
+			\fontsize{16pt}{16pt}\selectfont
 			\textbf{\abstractname}\par%\nobreak
 		}
-		\vspace{1cm}
+		\vspace{0.5cm}
 		\@afterheading
 	\fi
 }{%
