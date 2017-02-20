@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% This is unofficial SNU EE LaTeX class.
-%% 
+%%
 %% Author: zeta709 (zeta709@gmail.com)
 %% Version: 0.99
 %% Releasedate: 2012/01/19
@@ -77,7 +77,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% 사용 환경
-%% 
+%%
 %% TeXLive를 추천한다.
 %%
 %% 의존성
@@ -93,10 +93,10 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% 기타
-%% 
+%%
 %% @snu@ko와 같이 @을 넣는 것은 명령어를 내부 명령어로 사용하는 것이다.
 %% 그리고 @snu를 넣은 것은 다른 패키지와 충돌할 가능성을 방지하기 위해서이다.
-%% 
+%%
 %% memoir나 oblivior 등의 클래스도 좋다고 생각하지만 호환성 등을 생각해서
 %% report 클래스를 기반으로 하였다.
 %%
@@ -160,7 +160,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% "\if@snu@under"는 학부를 의미함.
-%% "\if@snu@ko"는 한글 논문을 의미함. 
+%% "\if@snu@ko"는 한글 논문을 의미함.
 
 \newcommand{\@snu@koen}{%
 	\if@snu@ko \expandafter\@firstoftwo
@@ -447,7 +447,7 @@
 		\linespread{1.3}\selectfont
 		\if@snu@under % 학부
 			\fontsize{16pt}{16pt}\selectfont
-			공학학사학위논문\\
+			이학학사학위논문\\
 			\vspace{2cm}\nointerlineskip
 			\fontsize{21pt}{21pt}\selectfont
 			\@title\\
@@ -455,19 +455,21 @@
 			\fontsize{16pt}{16pt}\selectfont
 			\@snu@graddate\\
 			\vspace{4cm}\nointerlineskip
-			서울대학교~공과대학\\
+			서울대학교~자연과학대학\\
 			\vspace{1cm}\nointerlineskip
-			전기공학부\\
+			통계학과\\
 			\vspace{1cm}\nointerlineskip
 			\@authoralt
 		\else % 대학원
 			\fontsize{14pt}{14pt}\selectfont
 			\if@snu@ms
-				\@snu@koen{공학석사학위논문}%
-				{M.S. THESIS}\\
+				\@snu@koen{이학석사학위논문}%
+				{이학석사학위논문}\\
+				%{M.S. THESIS}\\
 			\else
-				\@snu@koen{공학박사학위논문}%
-				{Ph.D. DISSERTATION}\\
+				\@snu@koen{이학박사학위논문}%
+				{이학박사학위논문}\\
+				%{Ph.D. DISSERTATION}\\
 			\fi
 			\vspace{2cm}\nointerlineskip
 			\fontsize{22pt}{22pt}\selectfont
@@ -476,11 +478,11 @@
 			\fontsize{16pt}{16pt}\selectfont
 			\@titlealt\\
 			\if@snu@ko\else
-				\vspace{2cm}\nointerlineskip
-				\fontsize{14pt}{14pt}\selectfont
-				BY\\
-				\vspace{1cm}\nointerlineskip
-				\@author
+				% \vspace{2cm}\nointerlineskip
+				% \fontsize{14pt}{14pt}\selectfont
+				% BY\\
+				% \vspace{1cm}\nointerlineskip
+				% \@author
 			\fi
 			\vfill
 			\fontsize{14pt}{14pt}\selectfont
@@ -491,16 +493,23 @@
 				서울대학교 대학원\\
 				\vspace{5mm}\nointerlineskip
 				\fontsize{14pt}{16pt}\selectfont
-				전기 컴퓨터 공학부\\
+				 통계학과\\
 				\vspace{5mm}\nointerlineskip
 				\fontsize{16pt}{16pt}\selectfont
 				\@authoralt
 			\else
-				\fontsize{14pt}{14pt}\selectfont
-				DEPARTMENT OF ELECTRICAL ENGINEERING AND\\
-				COMPUTER SCIENCE\\
-				COLLEGE OF ENGINEERING\\
-				SEOUL NATIONAL UNIVERSITY
+				\fontsize{16pt}{16pt}\selectfont
+				서울대학교 대학원\\
+				\vspace{5mm}\nointerlineskip
+				\fontsize{14pt}{16pt}\selectfont
+				 통계학과\\
+				\vspace{5mm}\nointerlineskip
+				\fontsize{16pt}{16pt}\selectfont
+				\@authoralt
+				% \fontsize{14pt}{14pt}\selectfont
+				% DEPARTMENT OF STATISTICS\\
+				% COLLEGE OF NATURAL SCIENCES\\
+				% SEOUL NATIONAL UNIVERSITY
 			\fi
 		\fi
 	}
@@ -533,7 +542,7 @@
 	\settowidth{\@snu@underlinetmpb}{#1}%
 	\addtolength{\@snu@underlinetmp}{-\@snu@underlinetmpb}%
 	\divide \@snu@underlinetmp by 2 %
-	\underline{\hspace{\@snu@underlinetmp}#1\hspace{\@snu@underlinetmp}}%
+	\underline{\hspace{\@snu@underlinetmp}#1\hspace{\@snu@underlinetmp} \hfill (인)}%
 }
 %\newcommand{\@snu@nameline}{\underline{~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~}}
 \newcommand{\makeapproval}{%
@@ -557,12 +566,12 @@
 			\fontsize{16pt}{16pt}\selectfont
 			지도교수~\@advisoralt\\
 			\vspace{1cm}\nointerlineskip
-			이~논문을~공학~학사학위~논문으로~제출함\\
+			이~논문을~이학~학사학위~논문으로~제출함\\
 			%\@snu@submissiondate\\
 			\vspace{5cm}\nointerlineskip
-			서울대학교~공과대학\\
+			서울대학교~자연과학대학\\
 			\vspace{1cm}\nointerlineskip
-			전기공학부\\
+			통계학과\\
 			\vspace{0.5cm}\nointerlineskip
 			\@authoralt\\
 			\vfill
@@ -587,7 +596,7 @@
 			\vspace{5mm}\nointerlineskip
 			\fontsize{16pt}{16pt}\selectfont
 			이 논문을 %
-			공학\@snu@msphd{석사}{박사} %
+			이학\@snu@msphd{석사}{박사} %
 			학위논문으로 제출함\\
 			\vspace{5mm}\nointerlineskip
 			\fontsize{14pt}{14pt}\selectfont
@@ -597,25 +606,25 @@
 			서울대학교 대학원\\
 			\vspace{5mm}\nointerlineskip
 			\fontsize{14pt}{14pt}\selectfont
-			전기 컴퓨터 공학부\\
+			통계학과\\
 			\vspace{5mm}\nointerlineskip
 			\fontsize{16pt}{16pt}\selectfont
 			\@authoralt\\
 			\vspace{1cm}\nointerlineskip
 			\@author의 %
-			공학\@snu@msphd{석사}{박사} %
+			이학\@snu@msphd{석사}{박사} %
 			학위논문을 인준함\\
 			\vspace{5mm}\nointerlineskip
 			\fontsize{14pt}{14pt}\selectfont
 			\@snu@approvaldate\\
 			\vfill
 			\begin{tabular}[b]{cc}
-			위 \hfill 원 \hfill 장 & \committeestyle{\@snu@committeememberA} \\
-			부위원장               & \committeestyle{\@snu@committeememberB} \\
-			위 \hfill 원           & \committeestyle{\@snu@committeememberC} \\
+			위 \hfill 원 \hfill 장 & \committeestyle{\@snu@committeememberA}\\
+			부위원장               & \committeestyle{\@snu@committeememberB}\\
+			위 \hfill 원           & \committeestyle{\@snu@committeememberC}\\
 			\if@snu@ms\else
-			위 \hfill 원           & \committeestyle{\@snu@committeememberD} \\
-			위 \hfill 원           & \committeestyle{\@snu@committeememberE} \\
+			위 \hfill 원           & \committeestyle{\@snu@committeememberD}\\
+			위 \hfill 원           & \committeestyle{\@snu@committeememberE}\\
 			\fi
 			\end{tabular}
 		\fi
@@ -657,17 +666,17 @@
 		\item 동의사항
 		\begin{enumerate}
 			\item 본인의 논문을 보존이나 인터넷 등을 통한 온라인 서비스 목적으로
-				복제할 경우 저작물의 내용을 변경하지 않는 범위 내에서의 복제를 허용합니다. 
+				복제할 경우 저작물의 내용을 변경하지 않는 범위 내에서의 복제를 허용합니다.
 			\item 본인의 논문을 디지털화하여 인터넷 등 정보통신망을 통한 논문의
-				일부 또는 전부의 복제$\cdot$배포 및 전송 시 무료로 제공하는 것에 동의합니다. 
+				일부 또는 전부의 복제$\cdot$배포 및 전송 시 무료로 제공하는 것에 동의합니다.
 		\end{enumerate}
 		\item 개인(저작자)의 의무\par
 			본 논문의 저작권을 타인에게 양도하거나 또는 출판을 허락하는 등
 			동의 내용을 변경하고자 할 때는 소속대학(원)에 공개의 유보 또는 해지를 즉시 통보하겠습니다.
 		\item 서울대학교의 의무
 		\begin{enumerate}
-			\item 서울대학교는 본 논문을 외부에 제공할 경우 저작권 보호장치(DRM)를 사용하여야 합니다. 
-			\item 서울대학교는 본 논문에 대한 공개의 유보나 해지 신청 시 즉시 처리해야 합니다. 
+			\item 서울대학교는 본 논문을 외부에 제공할 경우 저작권 보호장치(DRM)를 사용하여야 합니다.
+			\item 서울대학교는 본 논문에 대한 공개의 유보나 해지 신청 시 즉시 처리해야 합니다.
 		\end{enumerate}
 	\end{enumerate}
 	\null\vfill
@@ -682,7 +691,7 @@
 			\halign{
 			## & : ## \hfill \cr
 			학\hfill위\hfill구\hfill분	& {\bfseries {\if@snu@ms 석사 \else 박사 \fi}}\cr
-			학\hfill과			& {전기공학부}\cr
+			학\hfill과			& {통계학과}\cr
 			학\hfill번			& {\@snu@studentnumber}\cr
 			연\hfill락\hfill처		& {\@snu@phonenumber}\cr
 			저\hfill작\hfill자		& {\@author \hspace*{20mm}\small{(인)}}\cr
@@ -932,8 +941,8 @@
 		\usepackage[dvipdfmx,svgnames]{xcolor}
 	\fi
 	%KC2008의 공식예제인 first.tex와 ko.TEX v0.1.0 사용 설명서 참조
-	%hangul-ucs 4.0 이전 버전에서는 dhucs-ucshyper라는 부가 패키지가 제공되었으나, 
-	%hyperref의 기능 향상에 따라 불필요해졌으므로 
+	%hangul-ucs 4.0 이전 버전에서는 dhucs-ucshyper라는 부가 패키지가 제공되었으나,
+	%hyperref의 기능 향상에 따라 불필요해졌으므로
 	%ko.TEX에서는 이를 제공하지 않는다.
 \fi
 

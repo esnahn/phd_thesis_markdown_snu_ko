@@ -7,7 +7,7 @@
 % master : 석사
 % phd : 박사
 % openright : 챕터가 홀수쪽에서 시작
-\documentclass[oneside,phd,]{snueethesis}
+\documentclass[$if(twoside)$twoside,$else$oneside,$endif$$if(phd)$phd,$else$master,$endif$$if(ko)$ko,$endif$]{snuthesis}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% 목차 양식을 변경하는 코드
@@ -64,49 +64,47 @@
 
 %% \title : 22pt로 나오는 큰 제목
 %% \title* : 16pt로 나오는 작은 제목
-\title{Calculus, Analysis, Mathematical Statistics, ~Statistical Computinig and
-Lab; Regression Analysis}
-\title*{미적분학 해석학 수리통계학 확률의 개념 및 응용, ~전산통계 및 실험 그리고
-회귀분석 및 실험}
+\title{$if(ko)$$kotitle$$else$$entitle$$endif$}
+\title*{$if(ko)$$entitle$$else$$kotitle$$endif$}
 
 %% 저자 이름 Author's(Your) name
 %\author{홍길동}
 %\author*{홍~길~동} % Insert space for Hangul name.
-\author{홍길동}
-\author*{홍 길 동} % Same as \author.
+\author{$author$}
+\author*{$if(authorrun)$$authorrun$$else$$author$$endif$} % Same as \author.
 
 %% 학번 Student number
-\studentnumber{2014-12345}
+\studentnumber{$studentid$}
 
 %% 지도교수님 성함 Advisor's name
 %% (?) Use Korean name for Korean professor.
 %\advisor{홍길동}
 %\advisor*{홍~길~동} % Insert space for Hangul name.
-\advisor{이 교 수}
-\advisor*{이 교 수}
+\advisor{$advisor$}
+\advisor*{$if(advisorrun)$$advisorrun$$else$$advisor$$endif$}
 
 %% 학위 수여일 Graduation date
 %% 표지에 적히는 날짜.
 %% 학위 수여일이 아니라 논문 발간년도를 적어야 할 수도 있음.
 %\graddate{2010~년~2~월}
 %\graddate{FEBRURARY 2010}
-\graddate{2018 년 2 월}
+\graddate{$graddate$}
 %% 논문 제출일 Submission date
 %% (?) Use Korean date format.
 %\submissiondate{2009~년~11~월}
-\submissiondate{2017 년 11 월}
+\submissiondate{$submissiondate$}
 
 %% 논문 인준일 Approval date
 %% (?) Use Korean date format.
 %\approvaldate{2009~년~12~월}
-\approvaldate{2017 년 12 월}
+\approvaldate{$approvaldate$}
 
 %% Note: 인준지의 교수님 성함은
 %% 컴퓨터로 출력하지 않고, 교수님께서
 %% 자필로 쓰시기도 합니다.
 %% Committee members' names
 \committeemembers%
-{Freddie Mercury}{이 교 수}{Brian May}{Roger Taylor}{John Deacon}
+$for(committee)${$committee$}$endfor$
 %{김교수}%
 %{이교수}%
 %{박교수}%
@@ -125,10 +123,10 @@ Lab; Regression Analysis}
 \pagenumbering{roman}
 % 초록 Abstract
 
-\keyword{Alpha, Bravo, Charlie, Delta}
+\keyword{$if(ko)$$for(kokeyword)$$kokeyword$$sep$, $endfor$$else$$for(enkeyword)$$enkeyword$$sep$, $endfor$$endif$}
 \begin{abstract}
 \noindent
-\input{abstract.tex}
+\input{$if(ko)$$koabstract$$else$$enabstract$$endif$}
 \end{abstract}
 
 \tableofcontents
@@ -147,77 +145,7 @@ Lab; Regression Analysis}
 % \chapter{Conculsion}
 % Conculsion.
 
-\chapter{Introduction}\label{introduction}
-
-It would be much clean to white thesis using markdown. e.g., there are
-some \href{https://github.com}{github} repositories dedicated for this.
-\url{https://github.com/tompollard/phd_thesis_markdown} is an example.
-
-\begin{figure}
-\begin{center}
-\includegraphics[width=\textwidth]{figs/Octocat}
-\end{center}
-\caption{A cute Octocat. Yes, we are on GitHub!!!}
-\end{figure}
-
-\begin{table}
-\caption{A simple table.}
-\begin{center}
-\begin{tabular}{ l | c | r }
-  1 & 2 & 3 \\
-  4 & 5 & 6 \\
-  7 & 8 & 9 \\
-\end{tabular}
-\end{center}
-\end{table}
-
-\chapter{A Great Model}\label{a-great-model}
-
-\section{Something even better}\label{something-even-better}
-
-\subsection{Even a better one?}\label{even-a-better-one}
-
-\begin{itemize}
-\tightlist
-\item
-  It is easy to make a list in markdown.
-\item
-  seriously!
-\end{itemize}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  Even a numbered list.
-\item
-  don't ya think?
-\end{enumerate}
-
-\begin{table}
-\caption{Just another table.}
-\begin{center}
-\begin{tabular}{ l | c | r }
-  1 & 2 & 3 \\
-  4 & 5 & 6 \\
-  7 & 8 & 9 \\
-\end{tabular}
-\end{center}
-\end{table}
-
-\chapter{Conclusion}\label{conclusion}
-
-Argh. Why am I doing this? \citet{Nesterov:DoklAkadNaukSssr:1983}
-\citep{Boyd:ConvexOptimization:2004}
-\citet{Bertsekas:ConvexOptimizationTheory:2009}
-
-\bibliography{bibliography}\bibliographystyle{apalike}
-
-\appendix
-
-\chapter{부록?}
-
-\ldots{}?
+$body$
 
 
 
@@ -225,9 +153,9 @@ Argh. Why am I doing this? \citet{Nesterov:DoklAkadNaukSssr:1983}
 
 
 
-\keywordalt{갑, 을, 병, 정}
+\keywordalt{$if(ko)$$for(enkeyword)$$enkeyword$$sep$, $endfor$$else$$for(kokeyword)$$kokeyword$$sep$, $endfor$$endif$}
 \begin{abstractalt}
-\input{koabstract.tex}
+\input{$if(ko)$$enabstract$$else$$koabstract$$endif$}
 \end{abstractalt}
 
 \acknowledgement
