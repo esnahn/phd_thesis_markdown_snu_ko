@@ -14,6 +14,7 @@ submissiondate: "2017 년 11 월" # 한글. 논문 제출기한 기준.
 approvaldate: "2017 년 12 월" # 한글. 논문 종심기한 기준.
 twoside: false # true: 양면, false: 단면
 biblio-style: apalike # one of: plain, unsrt, alpha, abbrv, acm, apalike, siam, plainnat, abbrvnat, unsrtnat, etc.
+# When you change biblio-style, you should remove all *.bbl and *.aux files related before you build pdf file again.
 phd: true # true: 박사학위논문, false: 석사학위논문
 ko: false # true: 한글로 작성하는 논문, false: 영어로 작성하는 논문
 committee: # 논문심사위원. 석사는 3인, 박사는 5인. 
@@ -127,7 +128,7 @@ in a markdown file.-->
 \appendix
 <!-- DO NOT REMOVE THE ABOVE!!!!!!!! -->
 ```
-in the middle of the markdown, but I could not find a better way to use appendices than tis.
+in the middle of the markdown, but I could not find a better way to use appendices than this.
 
 
 # Dang it
