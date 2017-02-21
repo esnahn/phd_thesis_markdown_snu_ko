@@ -23,12 +23,12 @@ committee: # 논문심사위원. 석사는 3인, 박사는 5인.
   - Brian May
   - Roger Taylor
   - John Deacon
-enkeyword: # 영문 키워드.
+enkeyword: # 영문 키워드. 최대 6개까지.
   - Alpha
   - Bravo
   - Charlie
   - Delta
-kokeyword: # 국문 키워드.
+kokeyword: # 국문 키워드. 최대 6개까지.
   - 갑
   - 을
   - 병
