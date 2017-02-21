@@ -103,7 +103,7 @@ in a markdown file.-->
 <!-- I know it's not clean... but this is the only way I know at the moment -->
 
 \addcontentsline{toc}{chapter}{\bibname}
-\bibliography{bibliography} <!-- change to your bibliography file name -->
+\bibliography{references} <!-- change to your bibliography file name -->
 \bibliographystyle{apalike} <!-- change to your desired bib style -->
 
 \appendix
