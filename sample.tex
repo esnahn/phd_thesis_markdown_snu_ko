@@ -151,13 +151,14 @@
 \fi
 \hypersetup{breaklinks=true,
             bookmarks=true,
-            pdfauthor={홍길동},
-            pdftitle={},
-            colorlinks=true,
-            citecolor=blue,
-            urlcolor=blue,
-            linkcolor=magenta,
-            pdfborder={0 0 0}}
+            %pdfauthor={홍길동},
+            %pdftitle={},
+            %colorlinks=true,
+            %citecolor=blue,
+            %urlcolor=blue,
+            %linkcolor=magenta,
+            %pdfborder={0 0 0}}
+            }
 \urlstyle{same}  % don't use monospace font for urls
 \usepackage[normalem]{ulem}
 % avoid problems with \sout in headers with hyperref:
@@ -362,16 +363,13 @@ thesis. This causes some messy block like
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{<!--}\CommentTok{ DO NOT REMOVE THE FOLLOWING!!!!!!!! -->}
 \NormalTok{<!--}\CommentTok{ references. -->} 
 \NormalTok{<!--}\CommentTok{ note: this is how to use comments }
 \CommentTok{in a markdown file.-->}
-\NormalTok{<!--}\CommentTok{ I know it's not clean...  -->}
+\NormalTok{<!--}\CommentTok{ I know it's not clean... -->}
 \NormalTok{\textbackslash{}addcontentsline\{toc\}\{chapter\}\{\textbackslash{}bibname\}}
-\NormalTok{\textbackslash{}bibliography\{references\} <!--}\CommentTok{set to correct bibliography file name -->}
-
-\NormalTok{\textbackslash{}appendix}
-\NormalTok{<!--}\CommentTok{ DO NOT REMOVE THE ABOVE!!!!!!!! -->}
+\NormalTok{<!--}\CommentTok{ set to your bibliography file name -->}
+\NormalTok{\textbackslash{}bibliography\{references\} }
 \end{Highlighting}
 \end{Shaded}
 

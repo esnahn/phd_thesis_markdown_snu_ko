@@ -117,16 +117,13 @@ Just add appendix here!
 After peeking through many of theses, it was clear that most of the students are likely to have appendices in their thesis. This causes some messy block like 
 
 ```markdown
-<!-- DO NOT REMOVE THE FOLLOWING!!!!!!!! -->
 <!-- references. --> 
 <!-- note: this is how to use comments 
 in a markdown file.-->
-<!-- I know it's not clean...  -->
+<!-- I know it's not clean... -->
 \addcontentsline{toc}{chapter}{\bibname}
-\bibliography{references} <!--set to correct bibliography file name -->
-
-\appendix
-<!-- DO NOT REMOVE THE ABOVE!!!!!!!! -->
+<!-- set to your bibliography file name -->
+\bibliography{references} 
 ```
 in the middle of the markdown, but I could not find a better way to use appendices than this.
 
