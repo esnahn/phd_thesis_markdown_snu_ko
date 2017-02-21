@@ -4,7 +4,7 @@ kotitle: "미적분학 해석학 수리통계학 확률의 개념 및 응용, \\
 enabstract: abstract.tex # 영문 초록. 
 koabstract: koabstract.tex # 국문 초록. 
 acknowledgement: acknowledgement.tex # 감사의 글. 생략 가능 (파일명 대신 'false'를 적으면 됨.).
-bibliography: bibliography.bib # 참고문헌. 중간에 있는 bibliography 블록을 확인할 것. 
+bibliography: references.bib # 참고문헌. 중간에 있는 bibliography 블록을 확인할 것. 
 author: "홍길동" # 작성자.
 enauthor: "Hong Gildong" # 영문 성명.
 authorrun: "홍 길 동"  # 선택 사항. 특정 위치에 이름을 띄어 쓰고자 할 때.
@@ -13,6 +13,7 @@ graddate: "2018 년 2 월" # 한글. 학위 수여일.
 submissiondate: "2017 년 11 월" # 한글. 논문 제출기한 기준.
 approvaldate: "2017 년 12 월" # 한글. 논문 종심기한 기준.
 twoside: false # true: 양면, false: 단면
+biblio-style: apalike # one of: plain, unsrt, alpha, abbrv, acm, apalike, siam, plainnat, abbrvnat, unsrtnat, etc.
 phd: true # true: 박사학위논문, false: 석사학위논문
 ko: false # true: 한글로 작성하는 논문, false: 영어로 작성하는 논문
 committee: # 논문심사위원. 석사는 3인, 박사는 5인. 
@@ -100,19 +101,33 @@ Argh. Why am I doing this? @Nesterov:DoklAkadNaukSssr:1983 \citep{Boyd:ConvexOpt
 <!-- references. --> 
 <!-- note: this is how to use comments 
 in a markdown file.-->
-<!-- I know it's not clean... but this is the only way I know at the moment -->
-
+<!-- I know it's not clean... -->
 \addcontentsline{toc}{chapter}{\bibname}
-\bibliography{references} <!-- change to your bibliography file name -->
-\bibliographystyle{apalike} <!-- change to your desired bib style -->
-
-\appendix
+<!-- set to your bibliography file name -->
+\bibliography{references} 
 <!-- DO NOT REMOVE THE ABOVE!!!!!!!! -->
 
+<!-- Remove the below if you don't have any appendices -->
+\appendix
 
 # How to use Appendix
 
 Just add appendix here!
+After peeking through many of theses, it was clear that most of the students are likely to have appendices in their thesis. This causes some messy block like 
+
+```markdown
+<!-- DO NOT REMOVE THE FOLLOWING!!!!!!!! -->
+<!-- references. --> 
+<!-- note: this is how to use comments 
+in a markdown file.-->
+<!-- I know it's not clean...  -->
+\addcontentsline{toc}{chapter}{\bibname}
+\bibliography{references} <!--set to correct bibliography file name -->
+
+\appendix
+<!-- DO NOT REMOVE THE ABOVE!!!!!!!! -->
+```
+in the middle of the markdown, but I could not find a better way to use appendices than tis.
 
 
 # Dang it
