@@ -16,21 +16,21 @@ twoside: false # true: 양면, false: 단면
 phd: true # true: 박사학위논문, false: 석사학위논문
 ko: false # true: 한글로 작성하는 논문, false: 영어로 작성하는 논문
 committee: # 논문심사위원. 석사는 3인, 박사는 5인. 
-- Freddie Mercury
-- 이 교 수
-- Brian May
-- Roger Taylor
-- John Deacon
+  - Freddie Mercury
+  - 이 교 수
+  - Brian May
+  - Roger Taylor
+  - John Deacon
 enkeyword: # 영문 키워드.
-- Alpha
-- Bravo
-- Charlie
-- Delta
+  - Alpha
+  - Bravo
+  - Charlie
+  - Delta
 kokeyword: # 국문 키워드.
-- 갑
-- 을
-- 병
-- 정
+  - 갑
+  - 을
+  - 병
+  - 정
 studentid: "2014-12345" # 학번.
 header-includes:  # header에 넣고 싶은 내용 아무거나. 주로 추가적인 패키지 로딩. 
 - \usepackage{algorithmicx} 
