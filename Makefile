@@ -1,3 +1,7 @@
+STDNO="z0000000"
+LAST="Last"
+FIRST="First"
+
 PY=python
 PANDOC=pandoc
 
@@ -26,7 +30,7 @@ help:
 
 pdf:
 	pandoc "$(INPUTDIR)"/*.md \
-	-o "$(OUTPUTDIR)/thesis.pdf" \
+	-o "$(OUTPUTDIR)/$(STDNO)-$(LAST)-$(FIRST)-Thesis.pdf" \
 	-H "$(STYLEDIR)/preamble.tex" \
 	--template="$(STYLEDIR)/template.tex" \
 	--bibliography="$(BIBFILE)" 2>pandoc.log \
@@ -36,7 +40,9 @@ pdf:
 	-V papersize=a4paper \
 	-V documentclass:report \
 	-N \
-	--latex-engine=xelatex 
+	--pdf-engine=xelatex \
+	--filter pandoc-crossref
+	# --verbose 
 
 tex:
 	pandoc "$(INPUTDIR)"/*.md \
@@ -48,14 +54,16 @@ tex:
 	-V documentclass:report \
 	-N \
 	--csl="$(STYLEDIR)/ref_format.csl" \
-	--latex-engine=xelatex
+	--pdf-engine=xelatex \
+	--filter pandoc-crossref
 
 docx:
 	pandoc "$(INPUTDIR)"/*.md \
 	-o "$(OUTPUTDIR)/thesis.docx" \
 	--bibliography="$(BIBFILE)" \
 	--csl="$(STYLEDIR)/ref_format.csl" \
-	--toc
+	--toc \
+	--filter pandoc-crossref
 
 html:
 	pandoc "$(INPUTDIR)"/*.md \
@@ -66,7 +74,9 @@ html:
 	--csl="$(STYLEDIR)/ref_format.csl" \
 	--include-in-header="$(STYLEDIR)/style.css" \
 	--toc \
-	--number-sections
+	--number-sections \
+	--mathjax \
+	--filter pandoc-crossref
 	rm -rf "$(OUTPUTDIR)/source"
 	mkdir "$(OUTPUTDIR)/source"
 	cp -r "$(INPUTDIR)/figures" "$(OUTPUTDIR)/source/figures"

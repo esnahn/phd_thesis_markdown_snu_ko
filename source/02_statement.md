@@ -1,10 +1,16 @@
-<!-- This page is for an official declaration. -->
+<!-- 
+These pages are for UNSW official declarations. For latest requirements, refer to: 
+https://research.unsw.edu.au/thesis-submission
 
+UNSW Thesis Dissertation Sheet from:
+https://research.unsw.edu.au/document/thesisdissertation_sheet.docx
 
-\vspace*{\fill}
-\noindent
-\textit{
-I, AUTHORNAME confirm that the work presented in this thesis is my own. Where information has been derived from other sources, I confirm that this has been indicated in the thesis.
-}
-\vspace*{\fill}
+UNSW Originality Statement from:
+https://research.unsw.edu.au/sites/default/files/documents/originalitystatement.pdf 
+-->
+
+\includepdf[pages={1}]{UNSWresources/blankpage.pdf}
+\includepdf[pages={1}]{UNSWresources/thesisdissertation_sheet.pdf}
+\includepdf[pages={1}]{UNSWresources/originalitystatement.pdf}
+
 \pagenumbering{gobble}

@@ -12,17 +12,13 @@ Suspendisse iaculis in lacus ut dignissim. Cras dignissim dictum eleifend. Suspe
 
 This is the first part of the methodology. Cras porta dui a dolor tincidunt placerat. Cras scelerisque sem et malesuada vestibulum. Vivamus faucibus ligula ac sodales consectetur. Aliquam vel tristique nisl. Aliquam erat volutpat. Pellentesque iaculis enim sit amet posuere facilisis. Integer egestas quam sit amet nunc maximus, id bibendum ex blandit.
 
-For syntax highlighting in code blocks, add three "`" characters before and after a code block:
+For syntax highlighting in code blocks, add three "\`" characters before and after a code block:
 
 ```python
 mood = 'happy'
 if mood == 'happy':
     print("I am a happy robot")
 ```
-
-### Subsection 2
-
-This is the second part of the methodology. Proin tincidunt odio non sem mollis tristique. Fusce pharetra accumsan volutpat. In nec mauris vel orci rutrum dapibus nec ac nibh. Praesent malesuada sagittis nulla, eget commodo mauris ultricies eget. Suspendisse iaculis finibus ligula.
 
 <!-- 
 Comments can be added like this.
