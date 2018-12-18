@@ -1,6 +1,7 @@
-STDNO="z0000000"
-LAST="Last"
-FIRST="First"
+# 학번
+STDNO=z0000000
+# 이름
+FULLNAME=Last_First
 
 PY=python
 PANDOC=pandoc
@@ -30,18 +31,18 @@ help:
 
 pdf:
 	pandoc "$(INPUTDIR)"/*.md \
-	-o "$(OUTPUTDIR)/$(STDNO)-$(LAST)-$(FIRST)-Thesis.pdf" \
+	-o "$(OUTPUTDIR)/$(STDNO)-$(FULLNAME)-Thesis.pdf" \
 	-H "$(STYLEDIR)/preamble.tex" \
 	--template="$(STYLEDIR)/template.tex" \
 	--bibliography="$(BIBFILE)" 2>pandoc.log \
 	--csl="$(STYLEDIR)/ref_format.csl" \
 	--highlight-style pygments \
-	-V fontsize=12pt \
-	-V papersize=a4paper \
+	-V fontsize=11pt \
+	-V papersize=b5j \
 	-V documentclass:report \
 	-N \
 	--pdf-engine=xelatex \
-	--filter pandoc-crossref
+	--filter pandoc-crossref # \
 	# --verbose 
 
 tex:
@@ -49,8 +50,8 @@ tex:
 	-o "$(OUTPUTDIR)/thesis.tex" \
 	-H "$(STYLEDIR)/preamble.tex" \
 	--bibliography="$(BIBFILE)" \
-	-V fontsize=12pt \
-	-V papersize=a4paper \
+	-V fontsize=11pt \
+	-V papersize=b5j \
 	-V documentclass:report \
 	-N \
 	--csl="$(STYLEDIR)/ref_format.csl" \

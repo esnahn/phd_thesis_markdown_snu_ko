@@ -1,5 +1,8 @@
-# UNSW CCRC Markdown Thesis
-This work is based on [Tom Pollard's](https://github.com/tompollard), updated to conform with UNSW requirements.
+# SNU Korean Markdown Thesis
+
+This work is based on [Mat Lipson's template](https://github.com/matlipson/phd_thesis_markdown), which in turn is based on [Tom Pollard's](https://github.com/tompollard), updated with [Seyoon Ko's snuthesis](https://github.com/kose-y/snuthesis) to be used for writing korean thesis with SNU requirements.
+[Sujin Lee's guide](http://sujinlee.me/pandoc-thesis/) was the inspiration for this work.
+
 Write in simple text like this:
 
 ![markdown example](https://github.com/ArdenB/CCRCexamples/raw/master/markdown_thesis/source/figures/markdown.png)
@@ -10,23 +13,30 @@ Type `make pdf` or `make html` or `make docx`. End up with latex (or html, or do
 | ------------- | ------------- | ------------- |
 | ![latex example](https://github.com/ArdenB/CCRCexamples/raw/master/markdown_thesis/source/figures/latex.png)  | ![html example](https://github.com/ArdenB/CCRCexamples/raw/master/markdown_thesis/source/figures/html.png)  |  ![docx example](https://github.com/ArdenB/CCRCexamples/raw/master/markdown_thesis/source/figures/docx.png)  |
 
-  
+## 사용법
 
-If you prefer to work in Rmarkdown, see James Goldie's UNSW port: https://github.com/rensa/unswthesisdown
+다음의 파일들을 수정하여 사용합니다.
 
-The following instructions are from the original repository: https://github.com/tompollard/phd_thesis_markdown
+### Makefile
 
-# Template for writing a PhD thesis in Markdown [![Build Status](https://travis-ci.org/tompollard/phd_thesis_markdown.svg?branch=master)](https://travis-ci.org/tompollard/phd_thesis_markdown)  
+(단순히 파일명을 정하는 용도)
 
-[![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.58490.svg)](http://dx.doi.org/10.5281/zenodo.58490)
+- STDNO = 학번
+- FULLNAME = 이름
 
-This repository provides a framework for writing a PhD thesis in Markdown. I used the template for my PhD submission to University College London (UCL), but it should be straightforward to adapt suit other universities too.
+## 알아둘 점
 
-## Citing the template
+1. 용지는 46배판 대신 JIS B5를 사용했습니다.
+
+------
+
+## Citing the original template
+
+<!-- [![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.58490.svg)](http://dx.doi.org/10.5281/zenodo.58490) -->
 
 If you have used this template in your work, please cite the following publication:
 
-> Tom Pollard et al. (2016). Template for writing a PhD thesis in Markdown. Zenodo. http://dx.doi.org/10.5281/zenodo.58490
+> `Tom Pollard et al. (2016). Template for writing a PhD thesis in Markdown. Zenodo. http://dx.doi.org/10.5281/zenodo.58490`
 
 ## Why write my thesis in Markdown?
 
