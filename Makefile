@@ -30,31 +30,25 @@ help:
 	@echo 'or generic ones from: https://github.com/jgm/pandoc-templates		  '
 
 pdf:
-	pandoc "$(INPUTDIR)"/*.md \
+	pandoc "$(INPUTDIR)"/*.md "$(INPUTDIR)"/metadata.yaml \
 	-o "$(OUTPUTDIR)/$(STDNO)-$(FULLNAME)-Thesis.pdf" \
 	-H "$(STYLEDIR)/preamble.tex" \
 	--template="$(STYLEDIR)/template.tex" \
 	--bibliography="$(BIBFILE)" 2>pandoc.log \
-	--csl="$(STYLEDIR)/ref_format.csl" \
+	--csl="$(STYLEDIR)/apa_ko.csl" \
 	--highlight-style pygments \
-	-V fontsize=11pt \
-	-V papersize=b5j \
-	-V documentclass:report \
 	-N \
 	--pdf-engine=xelatex \
-	--filter pandoc-crossref # \
-	# --verbose 
+	--filter pandoc-crossref \
+	--verbose 
 
 tex:
-	pandoc "$(INPUTDIR)"/*.md \
+	pandoc "$(INPUTDIR)"/*.md "$(INPUTDIR)"/metadata.yaml \
 	-o "$(OUTPUTDIR)/thesis.tex" \
 	-H "$(STYLEDIR)/preamble.tex" \
 	--bibliography="$(BIBFILE)" \
-	-V fontsize=11pt \
-	-V papersize=b5j \
-	-V documentclass:report \
 	-N \
-	--csl="$(STYLEDIR)/ref_format.csl" \
+	--csl="$(STYLEDIR)/apa_ko.csl" \
 	--pdf-engine=xelatex \
 	--filter pandoc-crossref
 
@@ -62,7 +56,7 @@ docx:
 	pandoc "$(INPUTDIR)"/*.md \
 	-o "$(OUTPUTDIR)/thesis.docx" \
 	--bibliography="$(BIBFILE)" \
-	--csl="$(STYLEDIR)/ref_format.csl" \
+	--csl="$(STYLEDIR)/apa_ko.csl" \
 	--toc \
 	--filter pandoc-crossref
 
@@ -72,7 +66,7 @@ html:
 	--standalone \
 	--template="$(STYLEDIR)/template.html" \
 	--bibliography="$(BIBFILE)" \
-	--csl="$(STYLEDIR)/ref_format.csl" \
+	--csl="$(STYLEDIR)/apa_ko.csl" \
 	--include-in-header="$(STYLEDIR)/style.css" \
 	--toc \
 	--number-sections \

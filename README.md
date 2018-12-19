@@ -26,6 +26,7 @@ Type `make pdf` or `make html` or `make docx`. End up with latex (or html, or do
 
 ## 알아둘 점
 
+1. XeLaTeX만 지원합니다. 
 1. 용지는 46배판 대신 JIS B5를 사용했습니다.
 
 ------

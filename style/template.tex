@@ -1,8 +1,56 @@
-\documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$lang$,$endif$$if(papersize)$$papersize$,$endif$$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
+\documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$lang$,$endif$$if(papersize)$$papersize$,$endif$$for(classoption)$$classoption$$sep$,$endfor$]{report}
+
 $if(fontfamily)$
 \usepackage{$fontfamily$}
 $else$
 \usepackage{lmodern}
+$endif$
+
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex (better not)
+%   \usepackage[T1]{fontenc}
+%   \usepackage[utf8]{inputenc}
+% $if(euro)$
+%   \usepackage{eurosym}
+% $endif$
+
+\else % if luatex or xelatex
+\ifxetex % it should be
+  \usepackage{mathspec}
+  \usepackage{xltxtra,xunicode}
+\else
+  \usepackage{fontspec}
+\fi
+\defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+\newcommand{\euro}{€}
+$if(mainfont)$
+    \setmainfont[Path=$fontpath$, BoldFont={*Bold}]{$mainfont$}
+$endif$
+$if(sansfont)$
+    \setsansfont[Path=$fontpath$, BoldFont={*Bold}]{$sansfont$}
+$endif$
+$if(monofont)$
+    \setmonofont[Path=$fontpath$, Mapping=tex-ansi]{$monofont$}
+$endif$
+$if(mathfont)$
+    \setmathfont(Digits,Latin,Greek){$mathfont$}
+$endif$
+\fi
+
+$if(lang)$
+\ifxetex
+  \usepackage{polyglossia}
+  \setmainlanguage{$lang$}
+  \setotherlanguage{english}
+  % no if for korean
+  \newfontfamily\hangulfont[Path=$fontpath$, BoldFont={*Bold}, Ligatures=TeX]{$mainfont$}
+  \newfontfamily\hangulfontsf[Path=$fontpath$, BoldFont={*Bold}, Ligatures=TeX]{$sansfont$}
+  \newfontfamily\hangulfonttt[Path=$fontpath$, BoldFont={*Bold}, Ligatures=TeX]{$monofont$}
+\else
+  \usepackage[$lang$]{babel}
+\fi
 $endif$
 
 % Overwrite \begin{figure}[htbp] with \begin{figure}[H]
@@ -30,36 +78,7 @@ $if(linestretch)$
 \setstretch{$linestretch$}
 $endif$
 \usepackage{amssymb,amsmath}
-\usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e} % provides \textsubscript
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
-  \usepackage[T1]{fontenc}
-  \usepackage[utf8]{inputenc}
-$if(euro)$
-  \usepackage{eurosym}
-$endif$
-\else % if luatex or xelatex
-  \ifxetex
-    \usepackage{mathspec}
-    \usepackage{xltxtra,xunicode}
-  \else
-    \usepackage{fontspec}
-  \fi
-  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
-  \newcommand{\euro}{€}
-$if(mainfont)$
-    \setmainfont{$mainfont$}
-$endif$
-$if(sansfont)$
-    \setsansfont{$sansfont$}
-$endif$
-$if(monofont)$
-    \setmonofont[Mapping=tex-ansi]{$monofont$}
-$endif$
-$if(mathfont)$
-    \setmathfont(Digits,Latin,Greek){$mathfont$}
-$endif$
-\fi
+
 % use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 % use microtype if available
@@ -67,9 +86,7 @@ $endif$
 \usepackage{microtype}
 \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
-$if(geometry)$
-\usepackage[$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
-$endif$
+
 $if(natbib)$
 \usepackage{natbib}
 \bibliographystyle{$if(biblio-style)$$biblio-style$$else$plainnat$endif$}
@@ -143,22 +160,20 @@ $endif$
 $if(verbatim-in-note)$
 \VerbatimFootnotes % allows verbatim text in footnotes
 $endif$
-$if(lang)$
-\ifxetex
-  \usepackage{polyglossia}
-  \setmainlanguage{$mainlang$}
-\else
-  \usepackage[$lang$]{babel}
-\fi
-$endif$
 
+
+% add subtitle under title
 $if(title)$
 \title{$title$$if(subtitle)$\\\vspace{0.5em}{\large $subtitle$}$endif$}
 $endif$
+
+% 'and' to author list
 $if(author)$
 \author{$for(author)$$author$$sep$ \and $endfor$}
 $endif$
 \date{$date$}
+
+% preamble goes here
 $for(header-includes)$
 $header-includes$
 $endfor$
@@ -192,6 +207,7 @@ $if(lof)$
 $endif$
 $body$
 
+% no activation on citeproc?
 $if(natbib)$
 $if(biblio-files)$
 $if(biblio-title)$
@@ -209,6 +225,7 @@ $if(biblatex)$
 \printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
 
 $endif$
+
 $for(include-after)$
 $include-after$
 
