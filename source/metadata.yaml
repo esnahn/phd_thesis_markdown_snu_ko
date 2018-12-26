@@ -1,12 +1,4 @@
 ---
-lang: korean
-fontpath: style/fonts/
-mainfont: NanumMyeongJo
-sansfont: NanumBarunGothic
-monofont: D2Coding
-sectionfont: NanumSquareB
-fontsize: 11pt
-papersize: b5j
+#
 
-
-...
+---

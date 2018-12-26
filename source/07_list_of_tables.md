@@ -7,6 +7,4 @@ For me, this was the only drawback of writing in Markdown: it is not possible to
 Table 5.1  This is an example table . . .               \hfill{pp}  
 Table x.x  Short title of the figure . . .              \hfill{pp}  
 
-
-
-
+\listoftables

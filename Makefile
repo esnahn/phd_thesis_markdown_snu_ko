@@ -22,7 +22,7 @@ help:
 	@echo '   make html                        generate a web version             '
 	@echo '   make pdf                         generate a PDF file  			  '
 	@echo '   make docx	                       generate a Docx file 			  '
-	@echo '   make tex	                       generate a Latex file 			  '
+	# @echo '   make tex	                       generate a Latex file 			  '
 	@echo '                                                                       '
 	@echo ' 																	  '
 	@echo ' 																	  '
@@ -30,27 +30,38 @@ help:
 	@echo 'or generic ones from: https://github.com/jgm/pandoc-templates		  '
 
 pdf:
-	pandoc "$(INPUTDIR)"/*.md "$(INPUTDIR)"/metadata.yaml \
+	pandoc "$(STYLEDIR)/template.yaml" "$(INPUTDIR)/metadata.yaml" "$(INPUTDIR)"/*.md \
 	-o "$(OUTPUTDIR)/$(STDNO)-$(FULLNAME)-Thesis.pdf" \
-	-H "$(STYLEDIR)/preamble.tex" \
-	--template="$(STYLEDIR)/template.tex" \
 	--bibliography="$(BIBFILE)" 2>pandoc.log \
 	--csl="$(STYLEDIR)/apa_ko.csl" \
 	--highlight-style pygments \
+	--top-level-division=chapter \
 	-N \
 	--pdf-engine=xelatex \
 	--filter pandoc-crossref \
 	--verbose 
 
-tex:
-	pandoc "$(INPUTDIR)"/*.md "$(INPUTDIR)"/metadata.yaml \
-	-o "$(OUTPUTDIR)/thesis.tex" \
-	-H "$(STYLEDIR)/preamble.tex" \
-	--bibliography="$(BIBFILE)" \
-	-N \
+md:
+	pandoc "$(STYLEDIR)/template.yaml" "$(INPUTDIR)/metadata.yaml" "$(INPUTDIR)"/*.md  \
+	-o "$(OUTPUTDIR)/$(STDNO)-$(FULLNAME)-Thesis.md" \
+	--bibliography="$(BIBFILE)" 2>pandoc.log \
 	--csl="$(STYLEDIR)/apa_ko.csl" \
+	--highlight-style pygments \
+	--top-level-division=chapter \
+	-N \
 	--pdf-engine=xelatex \
-	--filter pandoc-crossref
+	--filter pandoc-crossref \
+	# --verbose 
+
+# tex:
+# 	pandoc "$(INPUTDIR)"/*.md "$(INPUTDIR)"/metadata.yaml \
+# 	-o "$(OUTPUTDIR)/thesis.tex" \
+# 	-H "$(STYLEDIR)/preamble.tex" \
+# 	--bibliography="$(BIBFILE)" \
+# 	-N \
+# 	--csl="$(STYLEDIR)/apa_ko.csl" \
+# 	--pdf-engine=xelatex \
+# 	--filter pandoc-crossref
 
 docx:
 	pandoc "$(INPUTDIR)"/*.md \

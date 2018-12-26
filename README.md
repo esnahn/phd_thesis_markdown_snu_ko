@@ -24,10 +24,20 @@ Type `make pdf` or `make html` or `make docx`. End up with latex (or html, or do
 - STDNO = 학번
 - FULLNAME = 이름
 
+### template.yaml
+
+- fontfamilies = 한국어 글꼴 설정
+- fontsize = 본문 글씨 크기
+- papersize = 용지 크기 (우리에게 익숙한 B시리즈 용지는 뒤에 j를 붙여야 합니다.)
+- classoption
+  - [one|two]side = 단면/양면 (용지 여백 등 차이)
+  - open[any|right] = 장을 아무/홀수 쪽에서 시작
+
 ## 알아둘 점
 
 1. XeLaTeX만 지원합니다. 
 1. 용지는 46배판 대신 JIS B5를 사용했습니다.
+1. 자유롭게 배포가능한 나눔글꼴을 기본으로 설정했습니다.
 
 ------
 
