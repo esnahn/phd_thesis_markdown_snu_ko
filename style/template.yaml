@@ -8,6 +8,13 @@ graphics: true
 
 # geometry: # JIS B5 출력시
   # - paper = b5j
+geometry: # A4 출력시
+  - paper = a4paper
+  - layout = b5j
+  - layouthoffset = 14mm
+  - layoutvoffset = 20mm
+  - showcrop # 재단선
+
   # - textwidth = 130mm # 여백
   # - textheight = 195mm
   # - includeheadfoot
@@ -15,36 +22,29 @@ graphics: true
   # - headsep = 5mm
   # - foot = 15mm
   # - centering
-geometry: # A4 출력시
-  - paper = a4paper
-  - layout = b5j
-  - layouthoffset = 14mm
-  - layoutvoffset = 20mm
-  - showcrop # 재단선
-  - textwidth = 130mm # 여백
-  - textheight = 195mm
-  - includeheadfoot
-  - head = 15mm
-  - headsep = 5mm
-  - foot = 15mm
-  - centering
 
 # linestretch: 1
 # indent: true
 
 lang: ko # BCP 47 tag for Korean
+# full names are needed for polyglossia
+polyglossia-otherlangs:
+  - name: english
+
+# this option changes everything back to default...
+
+# linestretch: 10 # it doesn't affect line spacing
+
 fontfamilies: # for xetex and polyglossia
   - name: \hangulfont
     font: NanumMyeongjo
     options:
-      - Script = Hangul
       - Path = style/fonts/
       - Extension = .otf
       - BoldFont = *Bold 
   - name: \hangulfontsf
     font: NanumBarunGothic
     options:
-      - Script = Hangul
       - Path = style/fonts/
       - Extension = .otf
       - BoldFont = *Bold 
@@ -72,10 +72,11 @@ fontfamilies: # for xetex and polyglossia
 #   - BoldFont = *Bold 
 
 fontsize: 11pt
-# papersize: b5j
-# crossref settings
-chapters: true # 
 
-header-includes:
-  \input{style/header.tex}
+### crossref settings
+chapters: true 
+  
+include-before:
+  \input{style/before.tex}
+
 ---

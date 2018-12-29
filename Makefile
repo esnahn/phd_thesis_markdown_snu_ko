@@ -32,6 +32,7 @@ help:
 pdf:
 	pandoc "$(STYLEDIR)/template.yaml" "$(INPUTDIR)/metadata.yaml" "$(INPUTDIR)"/*.md \
 	-o "$(OUTPUTDIR)/$(STDNO)-$(FULLNAME)-Thesis.pdf" \
+	--template="$(STYLEDIR)/template.tex" \
 	--bibliography="$(BIBFILE)" 2>pandoc.log \
 	--csl="$(STYLEDIR)/apa_ko.csl" \
 	--highlight-style pygments \
@@ -53,15 +54,14 @@ md:
 	--filter pandoc-crossref \
 	# --verbose 
 
-# tex:
-# 	pandoc "$(INPUTDIR)"/*.md "$(INPUTDIR)"/metadata.yaml \
-# 	-o "$(OUTPUTDIR)/thesis.tex" \
-# 	-H "$(STYLEDIR)/preamble.tex" \
-# 	--bibliography="$(BIBFILE)" \
-# 	-N \
-# 	--csl="$(STYLEDIR)/apa_ko.csl" \
-# 	--pdf-engine=xelatex \
-# 	--filter pandoc-crossref
+tex:
+	pandoc "$(INPUTDIR)"/*.md \
+	-o "$(OUTPUTDIR)/thesis.tex" \
+	--bibliography="$(BIBFILE)" \
+	-N \
+	--csl="$(STYLEDIR)/apa_ko.csl" \
+	--pdf-engine=xelatex \
+	--filter pandoc-crossref
 
 docx:
 	pandoc "$(INPUTDIR)"/*.md \
