@@ -38,22 +38,24 @@ polyglossia-otherlangs:
 fontfamilies: # for xetex and polyglossia
   - name: \hangulfont
     font: NanumMyeongjo
-    options:
-      - Path = style/fonts/
-      - Extension = .otf
-      - BoldFont = *Bold 
+    options: # multiline single input
+      Path = style/fonts/,
+      Extension = .otf,
+      BoldFont = *ExtraBold,
+      AutoFakeSlant
   - name: \hangulfontsf
     font: NanumBarunGothic
     options:
-      - Path = style/fonts/
-      - Extension = .otf
-      - BoldFont = *Bold 
+      Path = style/fonts/,
+      Extension = .otf,
+      BoldFont = *Bold,
+      AutoFakeSlant
   - name: \hangulfonttt
     font: D2Coding
     options:
-      - Path = style/fonts/
-      - Extension = .ttf
-      - BoldFont = *Bold 
+      Path = style/fonts/,
+      Extension = .ttf,
+      BoldFont = *Bold 
 
 # mainfont: NanumMyeongjo # for fontspec??
 # mainfontoptions:
