@@ -58,3 +58,6 @@ target/
 
 # Node modules
 node_modules/
+
+# PDF temp folder
+tex2pdf*/
