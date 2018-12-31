@@ -13,31 +13,27 @@ amended by Euisoon Ahn, 2018
 \begin{titlepage}
     \begin{center}
         \snularge
-        공학박사학위논문
+        \snukodegree 학위논문
 
         \vspace{2cm}
 
         \snutitleHuge
-        초공간 도약 항법의 개발
-
-        줄 넘기려면 두 줄 띄기
+        \snukotitle
 
         \snuhuge
-        - 열락의 군영과 행복스럽고 지혜는 맺어 봄바람
+        \snukosubtitle
 
         \vspace{1cm}
 
-        \begin{english}
         \snuhuge
-        English title is not required for Korean thesis although it is widely used so if you don't like it just remove it
-        \end{english}
+        \snuentitle
 
         \vfill
         \vfill
         \vfill
 
         \snularge
-        2019년 8월
+        \snukograddate
 
         \vfill
         \vfill
@@ -46,10 +42,10 @@ amended by Euisoon Ahn, 2018
         서울대학교 대학원
 
         \snularge
-        건축학과
+        \snukodepartment
 
         \snuhuge
-        안 의 순
+        \snukoauthorrun
         
     \end{center}
 \end{titlepage}

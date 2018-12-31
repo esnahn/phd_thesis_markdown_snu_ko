@@ -333,6 +333,21 @@ $endif$
 \restoregeometry
 % \loadgeometry{snutitlegeometry}
 
+\newcommand{\snukotitle}{$kotitle$}
+\newcommand{\snukosubtitle}{$if(kosubtitle)$- $kosubtitle$$endif$}
+\newcommand{\snuentitle}{$if(entitle)$\begin{english}$entitle$\end{english}$endif$}
+
+\newcommand{\snukoauthor}{$koauthor$}
+\newcommand{\snukoauthorrun}{$koauthorrun$}
+
+\newcommand{\snukodegree}{$kodegree$}
+\newcommand{\snukodepartment}{$kodepartment$}
+
+\newcommand{\snukograddate}{$graddate$}
+\newcommand{\snukosubmissiondate}{$submissiondate$}
+\newcommand{\snukoapprovaldate}{$approvaldate$}
+
+
 $for(include-before)$
 $include-before$
 $endfor$

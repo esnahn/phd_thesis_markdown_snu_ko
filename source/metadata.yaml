@@ -1,4 +1,21 @@
 ---
-#
+kotitle: | # |가 줄바꿈 보존
+  초공간 도약 항법의 개발
 
+  줄 넘기려면 두 줄 띄기
+kosubtitle: 열락의 군영과 행복스럽고 지혜는 맺어 봄바람
+entitle: # 아무 것도 없으면 줄바꿈 공백으로 대체
+  English title is not required for Korean thesis   
+  although it is widely used   
+  so if you don't like it just remove it
+
+koauthor: 안의순 # 저자명, 한글로
+koauthorrun: 안 의 순 # 저자명, 한글로 한 자씩 띄어써서
+
+kodegree: 공학박사
+kodepartment: 건축학과
+
+graddate: 2019년 8월 # 발간일, 학위 수여일 월까지
+submissiondate: 2019년 6월 # 논문 제출일, 제출기한 월까지
+approvaldate: 2019년 5월 # 논문 인준일, 종심일 월까지
 ---
