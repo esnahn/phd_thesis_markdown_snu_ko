@@ -1,4 +1,3 @@
-<!-- \includepdf[pages={1}]{UNSWresources/blankpage.pdf} -->
 \loadgeometry{snuapprovalgeometry}
 \pagenumbering{gobble}
 \begin{center}
