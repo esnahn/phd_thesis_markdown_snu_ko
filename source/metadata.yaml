@@ -15,7 +15,17 @@ koauthorrun: 안 의 순 # 저자명, 한글로 한 자씩 띄어써서
 kodegree: 공학박사
 kodepartment: 건축학과
 
+koadvisorrun: 홍 길 동 # 지도교수명, 한글로 한 자씩 띄어써서
+
 graddate: 2019년 8월 # 발간일, 학위 수여일 월까지
 submissiondate: 2019년 6월 # 논문 제출일, 제출기한 월까지
 approvaldate: 2019년 5월 # 논문 인준일, 종심일 월까지
+
+### 인준지에 자필로 이름을 적으시는 경우 삭제
+# committee: # 논문심사위원 명단. 지도교수는 가장 아래
+#   - 허 균
+#   - 홍 상 직
+#   - Brian May
+#   - Roger Taylor
+#   - 홍 길 동
 ---
