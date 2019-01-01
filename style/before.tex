@@ -38,11 +38,81 @@
 \newcommand{\snuhuge}{\fontsize{16}{18}\selectfont}
 \newcommand{\snutitleHuge}{\fontsize{22}{22}\selectfont}
 
+%%% pandoc 번호 있는 장은 \chapter 번호 없는 장은 \chapter* \addcontentsline
+%%% 추가로 모양 없는 장 만들기
+
+\newcommand{\snunoheaderchapter}[1]{%
+	\newpage
+	\begin{center}%
+		\snuhuge\textbf{#1}
+	\end{center}
+	\addcontentsline{toc}{chapter}{#1}
+}
 
 
 
 
 
+% \addcontentsline{toc}{chapter}{\abstractname}
+% {%
+%     \centering
+%     \normalfont
+%     \linespread{1.0}
+%     \fontsize{16pt}{16pt}\selectfont
+%     \textbf{\abstractname}\par%\nobreak
+% }
+
+% \def\@makechapterhead#1{%
+%   \vspace*{50\p@}%
+%   {\parindent \z@ \raggedright \normalfont
+%     \ifnum \c@secnumdepth >\m@ne
+%         \huge\bfseries \@chapapp\space \thechapter
+%         \par\nobreak
+%         \vskip 20\p@
+%     \fi
+%     \interlinepenalty\@M
+%     \Huge \bfseries #1\par\nobreak
+%     \vskip 40\p@
+%   }}
+% \def\@schapter#1{\if@twocolumn
+%                    \@topnewpage[\@makeschapterhead{#1}]%
+%                  \else
+%                    \@makeschapterhead{#1}%
+%                    \@afterheading
+%                  \fi}
+% \def\@makeschapterhead#1{%
+%   \vspace*{50\p@}%
+%   {\parindent \z@ \raggedright
+%     \normalfont
+%     \interlinepenalty\@M
+%     \Huge \bfseries  #1\par\nobreak
+%     \vskip 40\p@
+%   }}
+
+% %% 감사의 글
+% \newcommand{\acknowledgement}{%
+% 	\if@snu@ko
+% 		\if@openright \cleardoublepage
+% 		\else \clearpage \fi
+% 		\@afterindentfalse
+% 		\phantomsection
+% 		\addcontentsline{toc}{chapter}{\acknowledgementname}
+% 		{%
+% 			\centering
+% 			\normalfont
+% 			\linespread{1.0}
+% 			\fontsize{16pt}{16pt}\selectfont
+% 			\textbf{\acknowledgementname}\par\nobreak
+% 		}
+% 		\vspace{2cm}
+% 		\@afterheading
+% 	\else
+% 		\chapter*{\acknowledgementname}
+% 		\@mkboth{\MakeUppercase\acknowledgementname}%
+% 			{\MakeUppercase\acknowledgementname}%
+% 		\addcontentsline{toc}{chapter}{\acknowledgementname}%
+% 	\fi
+% }
 
 
 

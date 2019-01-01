@@ -5,9 +5,7 @@ kotitle: | # |가 줄바꿈 보존
   줄 넘기려면 두 줄 띄기
 kosubtitle: 열락의 군영과 행복스럽고 지혜는 맺어 봄바람
 entitle: # 아무 것도 없으면 줄바꿈 공백으로 대체
-  English title is not required for Korean thesis   
-  although it is widely used   
-  so if you don't like it just remove it
+  English title is needed for English abstract after all
 
 koauthor: 안의순 # 저자명, 한글로
 koauthorrun: 안 의 순 # 저자명, 한글로 한 자씩 띄어써서
