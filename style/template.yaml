@@ -30,8 +30,7 @@ lang: ko # BCP 47 tag for Korean
 # full names are needed for polyglossia
 polyglossia-otherlangs:
   - name: english
-
-# this option changes everything back to default...
+### NO! div lang, only use \begin{english}
 
 # linestretch: 10 # it doesn't affect line spacing
 
