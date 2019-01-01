@@ -28,16 +28,21 @@ Type `make pdf` or `make html` or `make docx`. End up with latex (or html, or do
 
 - fontfamilies = 한국어 글꼴 설정
 - fontsize = 본문 글씨 크기
-- papersize = 용지 크기 (우리에게 익숙한 B시리즈 용지는 뒤에 j를 붙여야 합니다.)
+- geometry = 용지 레이아웃 (우리에게 익숙한 B시리즈 용지는 뒤에 j를 붙여야 합니다.)
 - classoption
   - [one|two]side = 단면/양면 (용지 여백 등 차이)
   - open[any|right] = 장을 아무/홀수 쪽에서 시작
+
+### metadata.yaml
+
+- 서울대 논문 양식에서 사용되는 메타데이터를 모아놓았습니다.
 
 ## 알아둘 점
 
 1. XeLaTeX만 지원합니다. 
 1. 용지는 46배판 대신 JIS B5를 사용했습니다.
 1. 자유롭게 배포가능한 나눔글꼴을 기본으로 설정했습니다.
+1. 2번 이상 사용되는 것만 변수로 만들고 최대한 WYSIWYG으로 만들려 노력했습니다.
 
 ------
 
