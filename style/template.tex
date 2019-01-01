@@ -255,19 +255,19 @@ $for(polyglossia-otherlangs)$
 $endfor$
 % \fi
 $endif$
-$if(dir)$
-\ifxetex
-  % load bidi as late as possible as it modifies e.g. graphicx
-  \usepackage{bidi}
-\fi
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
-  \TeXXeTstate=1
-  \newcommand{\RL}[1]{\beginR #1\endR}
-  \newcommand{\LR}[1]{\beginL #1\endL}
-  \newenvironment{RTL}{\beginR}{\endR}
-  \newenvironment{LTR}{\beginL}{\endL}
-\fi
-$endif$
+% $if(dir)$
+% \ifxetex
+%   % load bidi as late as possible as it modifies e.g. graphicx
+%   \usepackage{bidi}
+% \fi
+% \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+%   \TeXXeTstate=1
+%   \newcommand{\RL}[1]{\beginR #1\endR}
+%   \newcommand{\LR}[1]{\beginL #1\endL}
+%   \newenvironment{RTL}{\beginR}{\endR}
+%   \newenvironment{LTR}{\beginL}{\endL}
+% \fi
+% $endif$
 $if(natbib)$
 \usepackage[$natbiboptions$]{natbib}
 \bibliographystyle{$if(biblio-style)$$biblio-style$$else$plainnat$endif$}
