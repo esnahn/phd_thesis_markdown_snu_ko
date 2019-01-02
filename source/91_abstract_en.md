@@ -1,4 +1,6 @@
-<div lang="en">
+<div lang=en>
+<!-- :::lang=en -->
+<!-- fenced_divs don't work exactly like real divs? -->
 
 \snunoheaderchapter{Abstract}
 
@@ -7,7 +9,7 @@
 \snuentitle
 \end{center}
 
-\vspace{16pt}
+\vspace{20pt}
 
 \begin{flushright}
 \snularge
@@ -39,6 +41,7 @@ Mauris eu vehicula nibh. In lectus turpis, tempor at felis a, egestas fermentum 
 
 **Student Number: 2000-00000**
 
+<!-- ::: -->
 </div>
 
 \newpage
