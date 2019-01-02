@@ -19,6 +19,7 @@ help:
 	@echo 'Makefile for the Markdown thesis                                       '
 	@echo '                                                                       '
 	@echo 'Usage:                                                                 '
+	@echo '   make template                    rebuild latex template             '
 	@echo '   make html                        generate a web version             '
 	@echo '   make pdf                         generate a PDF file  			  '
 	@echo '   make docx	                       generate a Docx file 			  '
@@ -28,6 +29,11 @@ help:
 	@echo ' 																	  '
 	@echo 'get local templates with: pandoc -D latex/html/etc	  				  '
 	@echo 'or generic ones from: https://github.com/jgm/pandoc-templates		  '
+
+template:
+
+	pandoc -D latex > "$(STYLEDIR)/default.tex"
+	sed $$'/.*for.*include-before.*/{e cat "$(STYLEDIR)/template.before.tex"\n}' "$(STYLEDIR)/default.tex" > "$(STYLEDIR)/template.tex"
 
 pdf:
 	pandoc "$(STYLEDIR)/template.yaml" "$(INPUTDIR)/metadata.yaml" "$(INPUTDIR)"/*.md \
@@ -40,6 +46,25 @@ pdf:
 	-N \
 	--pdf-engine=xelatex \
 	--filter pandoc-crossref \
+	--verbose 
+
+debug:
+	pandoc "$(STYLEDIR)/template.yaml" "$(INPUTDIR)/metadata.yaml" "$(INPUTDIR)"/*.md \
+	-o "$(OUTPUTDIR)/$(STDNO)-$(FULLNAME)-Thesis.pdf" \
+	--template="debug.tex" \
+	--bibliography="$(BIBFILE)" 2>pandoc.log \
+	--csl="$(STYLEDIR)/apa_ko.csl" \
+	--highlight-style pygments \
+	--top-level-division=chapter \
+	-N \
+	--pdf-engine=xelatex \
+	--filter pandoc-crossref \
+	--verbose 
+
+test:
+	pandoc test*.md \
+	-o "$(OUTPUTDIR)/$(STDNO)-$(FULLNAME)-test.pdf" \
+	--pdf-engine=xelatex \
 	--verbose 
 
 md:

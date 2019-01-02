@@ -1,0 +1,53 @@
+\newcommand{\snukotitle}{$kotitle$}
+\newcommand{\snukosubtitle}{$if(kosubtitle)$- $kosubtitle$$endif$}
+\newcommand{\snuentitle}{$if(entitle)$\begin{english}$entitle$\end{english}$endif$}
+
+\newcommand{\snukoauthor}{$koauthor$}
+\newcommand{\snukoauthorrun}{$koauthorrun$}
+
+\newcommand{\snukodegree}{$kodegree$}
+\newcommand{\snukodepartment}{$kodepartment$}
+
+\newcommand{\snukoadvisorrun}{$koadvisorrun$}
+
+
+\newcommand{\snukograddate}{$graddate$}
+\newcommand{\snukosubmissiondate}{$submissiondate$}
+\newcommand{\snukoapprovaldate}{$approvaldate$}
+
+%%% 자필 서명시를 위한 더미 변수
+\newcommand{\snucommitteememberA}{}
+\newcommand{\snucommitteememberB}{}
+\newcommand{\snucommitteememberC}{}
+\newcommand{\snucommitteememberD}{}
+\newcommand{\snucommitteememberE}{}
+
+%%% 심사위원 명단 출력시
+$if(committee)$
+\newcommand{\snucommitteemembers}[5]{%
+  \expandafter\renewcommand\csname snucommitteememberA\endcsname{#1}
+  \expandafter\renewcommand\csname snucommitteememberB\endcsname{#2}
+  \expandafter\renewcommand\csname snucommitteememberC\endcsname{#3}
+  \expandafter\renewcommand\csname snucommitteememberD\endcsname{#4}
+  \expandafter\renewcommand\csname snucommitteememberE\endcsname{#5}
+}
+\snucommitteemembers%
+$for(committee)${$committee$}$endfor$
+
+\newlength{\snuunderlinetmp}
+\newlength{\snuunderlinetmpb}
+
+\newcommand{\committeestyle}[1]{%
+	\setlength{\snuunderlinetmp}{7cm}%
+	\settowidth{\snuunderlinetmpb}{#1}%
+	\addtolength{\snuunderlinetmp}{-\snuunderlinetmpb}%
+	\divide \snuunderlinetmp by 2 %
+	\underline{\hspace{\snuunderlinetmp}#1\hspace{\snuunderlinetmp} \hfill (인)}%
+}
+
+$else$
+%%% 심사위원 자필 서명시
+\newcommand{\committeestyle}[1]{%
+	\underline{\hspace{7cm} \hfill (인)}%
+}
+$endif$
