@@ -1,0 +1,37 @@
+\usepackage{pdfpages}
+
+%%% indent first line of the paragraph
+% \usepackage{indentfirst}
+% \setlength{\parindent}{0.9em}
+
+%%% geometry 중 서울대 양식에 해당하는 부분 추가
+\geometry{layout=b5j, showcrop}
+
+%%% https://tex.stackexchange.com/questions/45283/how-can-i-use-the-layout-and-twoside-options-of-the-geometry-package
+\makeatletter
+
+\newlength\hcorr
+\setlength\hcorr{\paperwidth}
+\addtolength\hcorr{-\Gm@layoutwidth}
+
+\newlength\vcorr
+\setlength\vcorr{\paperheight}
+\addtolength\vcorr{-\Gm@layoutheight}
+
+\makeatother
+
+\geometry{layouthoffset=.5\hcorr, layoutvoffset=.5\vcorr}
+%%%
+
+\geometry{
+    textwidth = 130mm,
+    textheight = 195mm,
+    includeheadfoot,
+    head = 15mm,
+    headsep = 5mm,
+    foot = 15mm,
+    centering,
+}
+
+
+

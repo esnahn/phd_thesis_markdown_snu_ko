@@ -147,16 +147,7 @@ $if(verbatim-in-note)$
 \VerbatimFootnotes % allows verbatim text in footnotes
 $endif$
 $if(geometry)$
-%%% geometry 중 서울대 양식에 해당하는 부분 추가
-\usepackage[$for(geometry)$$geometry$$sep$,$endfor$,
-  textwidth = 130mm,
-  textheight = 195mm,
-  includeheadfoot,
-  head = 15mm,
-  headsep = 5mm,
-  foot = 15mm,
-  centering,
-]{geometry}
+\usepackage[$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
 $endif$
 $if(beamer)$
 \newif\ifbibliography
@@ -309,12 +300,6 @@ $endif$
 %%%
 %%%
 
-\usepackage{pdfpages}
-
-%%% indent first line of the paragraph
-% \usepackage{indentfirst}
-% \setlength{\parindent}{0.9em}
-
 %%% run again after polyglossia
 $if(linestretch)$
 \setstretch{$linestretch$}
@@ -322,24 +307,7 @@ $endif$
 
 \begin{document}
 
-%%% 서울대 표지 양식 (여백)
-\newgeometry{
-  $for(geometry)$$geometry$$sep$,$endfor$,
-  textwidth = 150mm,
-  textheight = 210mm,
-  ignoreall,
-  centering}
-\savegeometry{snutitlegeometry}
-\restoregeometry
 
-\newgeometry{
-  $for(geometry)$$geometry$$sep$,$endfor$,
-  textwidth = 150mm,
-  textheight = 230mm,
-  ignoreall,
-  centering}
-\savegeometry{snuapprovalgeometry}
-\restoregeometry
 
 \newcommand{\snukotitle}{$kotitle$}
 \newcommand{\snukosubtitle}{$if(kosubtitle)$- $kosubtitle$$endif$}

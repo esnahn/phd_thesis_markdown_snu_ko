@@ -7,13 +7,13 @@ classoption:
 graphics: true
 
 # geometry: # JIS B5 출력시
-  # - paper = b5j
+#   - paper = b5j
 geometry: # A4 출력시
   - paper = a4paper
-  - layout = b5j
-  - layouthoffset = 14mm
-  - layoutvoffset = 20mm
-  - showcrop # 재단선
+  # - layout = b5j
+  # - layouthoffset = 14mm
+  # - layoutvoffset = 20mm
+  # - showcrop # 재단선
 
   # - textwidth = 130mm # 여백
   # - textheight = 195mm
@@ -77,6 +77,9 @@ fontsize: 11pt
 ### crossref settings
 chapters: true 
   
+header-includes:
+  \input{style/header.tex}
+
 include-before:
   \input{style/before.tex}
 

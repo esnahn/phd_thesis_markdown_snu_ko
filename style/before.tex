@@ -1,3 +1,24 @@
+%%% 서울대 표지 양식 (여백)
+\newgeometry{
+  layout=b5j, showcrop,
+  layouthoffset=.5\hcorr, layoutvoffset=.5\vcorr,
+  textwidth = 150mm,
+  textheight = 210mm,
+  ignoreall,
+  centering}
+\savegeometry{snutitlegeometry}
+\restoregeometry
+
+\newgeometry{
+  layout=b5j, showcrop,
+  layouthoffset=.5\hcorr, layoutvoffset=.5\vcorr,
+  textwidth = 150mm,
+  textheight = 230mm,
+  ignoreall,
+  centering}
+\savegeometry{snuapprovalgeometry}
+\restoregeometry
+
 \renewcommand{\abstractname}{국문초록} %
 %\renewcommand{\alsoname}{see also} % (makeidx package)
 \renewcommand{\appendixname}{부록} %
