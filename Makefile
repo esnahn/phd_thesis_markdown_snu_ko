@@ -23,7 +23,7 @@ help:
 	@echo '   make html                        generate a web version             '
 	@echo '   make pdf                         generate a PDF file  			  '
 	@echo '   make docx	                       generate a Docx file 			  '
-	# @echo '   make tex	                       generate a Latex file 			  '
+	@echo '   make tex	                       generate a Latex file 			  '
 	@echo '                                                                       '
 	@echo ' 																	  '
 	@echo ' 																	  '
@@ -39,19 +39,6 @@ pdf:
 	pandoc "$(STYLEDIR)/template.yaml" "$(INPUTDIR)/metadata.yaml" "$(INPUTDIR)"/*.md \
 	-o "$(OUTPUTDIR)/$(STDNO)-$(FULLNAME)-Thesis.pdf" \
 	--template="$(STYLEDIR)/template.tex" \
-	--bibliography="$(BIBFILE)" 2>pandoc.log \
-	--csl="$(STYLEDIR)/apa_ko.csl" \
-	--highlight-style pygments \
-	--top-level-division=chapter \
-	-N \
-	--pdf-engine=xelatex \
-	--filter pandoc-crossref \
-	--verbose 
-
-debug:
-	pandoc "$(STYLEDIR)/template.yaml" "$(INPUTDIR)/metadata.yaml" "$(INPUTDIR)"/*.md \
-	-o "$(OUTPUTDIR)/$(STDNO)-$(FULLNAME)-Thesis.pdf" \
-	--template="debug.tex" \
 	--bibliography="$(BIBFILE)" 2>pandoc.log \
 	--csl="$(STYLEDIR)/apa_ko.csl" \
 	--highlight-style pygments \
