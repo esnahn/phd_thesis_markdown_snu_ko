@@ -15,6 +15,8 @@ Type `make pdf` or `make html` or `make docx`. End up with latex (or html, or do
 
 ## 사용법
 
+Bash 환경에서 `make pdf`를 실행하여 PDF를 생성합니다.
+
 다음의 파일들을 수정하여 사용합니다.
 
 ### Makefile
@@ -36,6 +38,14 @@ Type `make pdf` or `make html` or `make docx`. End up with latex (or html, or do
 ### metadata.yaml
 
 - 서울대 논문 양식에서 사용되는 메타데이터를 모아놓았습니다.
+
+## 윈도 환경에서 설치하는 법
+
+1. Chocolatey (윈도 패키지 설치 도구) 설치 <https://chocolatey.org/install>
+1. `choco install pandoc` (Chocolatey를 이용해 pandoc 설치)
+1. `choco install rsvg-convert python miktex` (pandoc에 필요한 패키지 설치)
+1. 텍스트 에디터 설치 (VS code 추천: `choco install vscode` )
+1. `choco install git make` (PDF 변환에 필요한 bash 및 make 설치)
 
 ## 알아둘 점
 
