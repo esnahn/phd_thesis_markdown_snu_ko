@@ -61,3 +61,6 @@ node_modules/
 
 # PDF temp folder
 tex2pdf*/
+
+# Do not track the output anymore
+output/
