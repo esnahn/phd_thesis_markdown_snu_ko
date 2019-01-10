@@ -67,14 +67,18 @@ md:
 	# --verbose 
 
 tex:
-	pandoc "$(INPUTDIR)"/*.md \
+	pandoc "$(STYLEDIR)/template.yaml" "$(INPUTDIR)/metadata.yaml" "$(INPUTDIR)"/*.md \
 	-o "$(OUTPUTDIR)/thesis.tex" \
-	--bibliography="$(BIBFILE)" \
-	-N \
+	--template="$(STYLEDIR)/template.tex" \
+	--bibliography="$(BIBFILE)" 2>pandoc.log \
 	--csl="$(STYLEDIR)/apa_ko.csl" \
+	--highlight-style pygments \
+	--top-level-division=chapter \
+	-N \
 	--pdf-engine=xelatex \
-	--filter pandoc-crossref
-
+	--filter pandoc-crossref \
+	--verbose 
+	
 docx:
 	pandoc "$(INPUTDIR)"/*.md \
 	-o "$(OUTPUTDIR)/thesis.docx" \
