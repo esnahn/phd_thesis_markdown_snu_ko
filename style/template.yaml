@@ -60,6 +60,11 @@ fontsize: 11pt
 
 ### crossref settings
 chapters: true 
+figPrefix: 그림
+eqnPrefix: 식
+tblPrefix: 표
+secPrefix: 절
+secPrefixTemplate: $$i$$$$p$$
   
 header-includes:
   \input{style/header.tex}
