@@ -56,6 +56,8 @@
     <terms>
       <term name="et-al">등</term>
       <term name="and"></term>
+      <term name="from">에서</term>
+      <term name="retrieved">참고</term>
     </terms>
   </locale>
 
@@ -174,17 +176,17 @@
           </if>
           <else-if variable="URL" match="any">
             <group>
-              <text term="retrieved" text-case="capitalize-first" suffix=" "/>
-              <text term="from" suffix=" "/>
               <text variable="URL"/>
+              <text term="from" prefix=" "/>
+              <text term="retrieved" text-case="capitalize-first" prefix=" "/>
             </group>
           </else-if>
           <else-if variable="archive" match="any">
             <group>
-              <text term="retrieved" text-case="capitalize-first" suffix=" "/>
-              <text term="from" suffix=" "/>
               <text variable="archive" suffix="."/>
               <text variable="archive_location" prefix=" (" suffix=")"/>
+              <text term="from" prefix=" "/>
+              <text term="retrieved" text-case="capitalize-first" prefix=" "/>
             </group>
           </else-if>
         </choose>
@@ -198,19 +200,19 @@
             <choose>
               <if type="post post-weblog webpage" match="any">
                 <group delimiter=" ">
-                  <text term="retrieved" text-case="capitalize-first" suffix=" "/>
                   <group>
                     <date variable="accessed" form="text" suffix=", "/>
                   </group>
-                  <text term="from"/>
                   <text variable="URL"/>
+                  <text term="from" prefix=" "/>
+                  <text term="retrieved" text-case="capitalize-first" prefix=" "/>
                 </group>
               </if>
               <else>
                 <group>
-                  <text term="retrieved" text-case="capitalize-first" suffix=" "/>
-                  <text term="from" suffix=" "/>
                   <text variable="URL"/>
+                  <text term="from" prefix=" "/>
+                  <text term="retrieved" text-case="capitalize-first" prefix=" "/>
                 </group>
               </else>
             </choose>
