@@ -3,6 +3,8 @@
 \pagenumbering{roman}
 \setcounter{page}{1}
 
+\normalsize
+
 \vspace{20pt}
 
 <!-- This is the abstract -->
