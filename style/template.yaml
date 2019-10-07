@@ -20,18 +20,20 @@ polyglossia-otherlangs:
 
 fontfamilies: # for xetex and polyglossia
   - name: \hangulfont
-    font: NanumMyeongjo
+    font: SourceHanSerifKR
     options: # multiline single input
       Path = style/fonts/,
       Extension = .otf,
-      BoldFont = *ExtraBold,
+      UprightFont = \*-Regular,
+      BoldFont = \*-Bold,
       AutoFakeSlant
   - name: \hangulfontsf
-    font: NanumBarunGothic
+    font: SourceHanSansKR
     options:
       Path = style/fonts/,
       Extension = .otf,
-      BoldFont = *Bold,
+      UprightFont = \*-Regular,
+      BoldFont = \*-Bold,
       AutoFakeSlant
   - name: \hangulfonttt
     font: D2Coding
