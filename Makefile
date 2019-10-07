@@ -59,9 +59,8 @@ pdf:
 	--pdf-engine=xelatex \
 	--filter pandoc-crossref
 
-
 md:
-	pandoc "$(STYLEDIR)/template.yaml" "$(INPUTDIR)/metadata.yaml" "$(INPUTDIR)"/*.md  \
+	pandoc "$(STYLEDIR)/template.yaml" "$(INPUTDIR)/metadata.yaml" "$(INPUTDIR)"/*.md \
 	-o "$(OUTPUTDIR)/$(STDNO)-$(FULLNAME)-Thesis.md" \
 	--bibliography="$(BIBFILE)" 2>pandoc.log \
 	--csl="$(STYLEDIR)/apa_ko.csl" \
