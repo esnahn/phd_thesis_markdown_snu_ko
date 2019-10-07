@@ -35,6 +35,18 @@ template:
 	pandoc -D latex > "$(STYLEDIR)/default.tex"
 	sed $$'/.*for.*include-before.*/{e cat "$(STYLEDIR)/template.before.tex"\n}' "$(STYLEDIR)/default.tex" > "$(STYLEDIR)/template.tex"
 
+tex:
+	pandoc "$(STYLEDIR)/template.yaml" "$(INPUTDIR)/metadata.yaml" "$(INPUTDIR)"/*.md \
+	-o "$(OUTPUTDIR)/thesis.tex" \
+	--template="$(STYLEDIR)/template.tex" \
+	--bibliography="$(BIBFILE)" 2>pandoc.log \
+	--csl="$(STYLEDIR)/apa_ko.csl" \
+	--highlight-style pygments \
+	--top-level-division=chapter \
+	-N \
+	--pdf-engine=xelatex \
+	--filter pandoc-crossref
+	
 pdf:
 	pandoc "$(STYLEDIR)/template.yaml" "$(INPUTDIR)/metadata.yaml" "$(INPUTDIR)"/*.md \
 	-o "$(OUTPUTDIR)/$(STDNO)-$(FULLNAME)-Thesis.pdf" \
@@ -45,14 +57,8 @@ pdf:
 	--top-level-division=chapter \
 	-N \
 	--pdf-engine=xelatex \
-	--filter pandoc-crossref \
-	--verbose 
+	--filter pandoc-crossref
 
-test:
-	pandoc test*.md \
-	-o "$(OUTPUTDIR)/$(STDNO)-$(FULLNAME)-test.pdf" \
-	--pdf-engine=xelatex \
-	--verbose 
 
 md:
 	pandoc "$(STYLEDIR)/template.yaml" "$(INPUTDIR)/metadata.yaml" "$(INPUTDIR)"/*.md  \
@@ -65,19 +71,6 @@ md:
 	--pdf-engine=xelatex \
 	--filter pandoc-crossref \
 	# --verbose 
-
-tex:
-	pandoc "$(STYLEDIR)/template.yaml" "$(INPUTDIR)/metadata.yaml" "$(INPUTDIR)"/*.md \
-	-o "$(OUTPUTDIR)/thesis.tex" \
-	--template="$(STYLEDIR)/template.tex" \
-	--bibliography="$(BIBFILE)" 2>pandoc.log \
-	--csl="$(STYLEDIR)/apa_ko.csl" \
-	--highlight-style pygments \
-	--top-level-division=chapter \
-	-N \
-	--pdf-engine=xelatex \
-	--filter pandoc-crossref \
-	--verbose 
 	
 docx:
 	pandoc "$(INPUTDIR)"/*.md \
