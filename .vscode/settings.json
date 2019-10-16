@@ -1,0 +1,8 @@
+{
+    "pasteImage.path": "${currentFileDir}/figures",
+    "pasteImage.showFilePathConfirmInputBox": true,
+    "pasteImage.filePathConfirmInputBoxMode": "onlyName",
+    "PandocCiter.DefaultBib": "references.bib",
+    "PandocCiter.ShowLog": true,
+    "pasteImage.basePath": "${projectRoot}"
+}
