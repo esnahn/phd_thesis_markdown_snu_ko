@@ -4,3 +4,5 @@
 \renewcommand{\thepage}{\arabic{page}}
 
 \normalsize
+
+\graphicspath{{source/figures}}
