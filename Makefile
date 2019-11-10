@@ -34,6 +34,7 @@ template:
 
 	pandoc -D latex > "$(STYLEDIR)/default.tex"
 	sed $$'/.*for.*include-before.*/{e cat "$(STYLEDIR)/template.before.tex"\n}' "$(STYLEDIR)/default.tex" > "$(STYLEDIR)/template.tex"
+	sed -i 's/\(usepackage{.*\)grffile/\1/' "$(STYLEDIR)/template.tex"
 
 tex:
 	pandoc "$(STYLEDIR)/template.yaml" "$(INPUTDIR)/metadata.yaml" "$(INPUTDIR)"/*.md \
