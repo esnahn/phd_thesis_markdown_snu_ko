@@ -4,5 +4,5 @@
     "pasteImage.filePathConfirmInputBoxMode": "onlyName",
     "PandocCiter.DefaultBib": "references.bib",
     "PandocCiter.ShowLog": true,
-    "pasteImage.basePath": "${projectRoot}"
+    "pasteImage.basePath": "${projectRoot}/source/figures"
 }
