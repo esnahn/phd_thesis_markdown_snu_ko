@@ -26,6 +26,7 @@ fontfamilies: # for xetex and polyglossia
       Extension = .otf,
       UprightFont = \*-Regular,
       BoldFont = \*-Bold,
+      Ligatures = TeX,
       AutoFakeSlant
   - name: \hangulfontsf
     font: SourceHanSansKR
@@ -34,6 +35,7 @@ fontfamilies: # for xetex and polyglossia
       Extension = .otf,
       UprightFont = \*-Regular,
       BoldFont = \*-Bold,
+      Ligatures = TeX,
       AutoFakeSlant
   - name: \hangulfonttt
     font: D2Coding
