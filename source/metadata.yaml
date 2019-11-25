@@ -26,4 +26,6 @@ approvaldate: 2019년 5월 # 논문 인준일, 종심일 월까지
 #   - Brian May
 #   - Roger Taylor
 #   - 홍 길 동
+
+bibliography: [references.bib]
 ---
