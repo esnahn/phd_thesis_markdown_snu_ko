@@ -60,8 +60,6 @@ fontfamilies: # for xetex and polyglossia
 #   - Extension = .ttf
 #   - BoldFont = *Bold 
 
-fontsize: 11pt
-
 ### crossref settings
 chapters: true 
 figPrefix: 그림
