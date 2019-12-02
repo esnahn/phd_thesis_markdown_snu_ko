@@ -10,7 +10,7 @@ graphics: true
 # geometry: paper = b5j
 geometry: paper = a4paper
 
-# linestretch: 1
+linestretch: 1.3
 # indent: true
 
 lang: ko # BCP 47 tag for Korean
@@ -42,7 +42,7 @@ fontfamilies: # for xetex and polyglossia
     options:
       Path = style/fonts/,
       Extension = .ttf,
-      BoldFont = *Bold 
+      BoldFont = \*Bold
 
 # mainfont: NanumMyeongjo # for fontspec??
 # mainfontoptions:
@@ -54,11 +54,11 @@ fontfamilies: # for xetex and polyglossia
 #   - Path = style/fonts/
 #   - Extension = .otf
 #   - BoldFont = *Bold 
-# monofont: D2Coding
-# monofontoptions:
-#   - Path = style/fonts/
-#   - Extension = .ttf
-#   - BoldFont = *Bold 
+monofont: D2Coding
+monofontoptions:
+  - Path = style/fonts/
+  - Extension = .ttf
+  - BoldFont = \*Bold 
 
 ### crossref settings
 chapters: true 
