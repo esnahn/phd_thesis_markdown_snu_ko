@@ -58,9 +58,9 @@ pdf:
 	--top-level-division=chapter \
 	-N \
 	--pdf-engine=xelatex \
-	--filter pandoc-crossref
-	@cat pandoc.log
-	@ls -l "$(OUTPUTDIR)/$(STDNO)-$(FULLNAME)-Thesis.pdf"
+	--filter pandoc-crossref \
+	&& ls -l "$(OUTPUTDIR)/$(STDNO)-$(FULLNAME)-Thesis.pdf"\
+	|| cat pandoc.log	
 
 md:
 	pandoc "$(STYLEDIR)/template.yaml" "$(INPUTDIR)/metadata.yaml" "$(INPUTDIR)"/*.md \
