@@ -1,5 +1,6 @@
 ---
 documentclass: report
+fontsize: 12pt
 classoption:
   - twoside
   - openany # openright or openany
@@ -27,7 +28,8 @@ fontfamilies: # for xetex and polyglossia
       UprightFont = \*-Regular,
       BoldFont = \*-Bold,
       Ligatures = TeX,
-      AutoFakeSlant
+      AutoFakeSlant,
+      Scale = 0.93,
   - name: \hangulfontsf
     font: SourceHanSansKR
     options:
@@ -36,13 +38,15 @@ fontfamilies: # for xetex and polyglossia
       UprightFont = \*-Regular,
       BoldFont = \*-Bold,
       Ligatures = TeX,
-      AutoFakeSlant
+      AutoFakeSlant,
+      Scale = 0.93,
   - name: \hangulfonttt
     font: D2Coding
     options:
       Path = style/fonts/,
       Extension = .ttf,
-      BoldFont = \*Bold
+      BoldFont = \*Bold,
+      Scale = 0.93,
 
 # mainfont: NanumMyeongjo # for fontspec??
 # mainfontoptions:
