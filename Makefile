@@ -45,6 +45,7 @@ tex:
 	--highlight-style pygments \
 	--top-level-division=chapter \
 	-N \
+	--columns=32 --wrap=preserve \
 	--pdf-engine=xelatex \
 	--filter pandoc-crossref
 	
@@ -57,6 +58,7 @@ pdf:
 	--highlight-style pygments \
 	--top-level-division=chapter \
 	-N \
+	--columns=32 --wrap=preserve \
 	--pdf-engine=xelatex \
 	--filter pandoc-crossref \
 	&& ls -l "$(OUTPUTDIR)/$(STDNO)-$(FULLNAME)-Thesis.pdf"\
