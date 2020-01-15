@@ -39,6 +39,7 @@ template:
 tex:
 	pandoc "$(STYLEDIR)/template.yaml" "$(INPUTDIR)/metadata.yaml" "$(INPUTDIR)"/*.md \
 	-o "$(OUTPUTDIR)/thesis.tex" \
+	--from=markdown-auto_identifiers \
 	--template="$(STYLEDIR)/template.tex" \
 	--bibliography="$(BIBFILE)" 2>pandoc.log \
 	--csl="$(STYLEDIR)/apa_ko.csl" \
@@ -52,6 +53,7 @@ tex:
 pdf:
 	pandoc "$(STYLEDIR)/template.yaml" "$(INPUTDIR)/metadata.yaml" "$(INPUTDIR)"/*.md \
 	-o "$(OUTPUTDIR)/$(STDNO)-$(FULLNAME)-Thesis.pdf" \
+	--from=markdown-auto_identifiers \
 	--template="$(STYLEDIR)/template.tex" \
 	--bibliography="$(BIBFILE)" 2>pandoc.log \
 	--csl="$(STYLEDIR)/apa_ko.csl" \
