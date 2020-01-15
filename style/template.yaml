@@ -69,7 +69,8 @@ chapters: true
 figPrefix: 그림
 eqnPrefix: 식
 tblPrefix: 표
-secPrefix: 절
+lstPrefix: 
+secPrefix: 장
 secPrefixTemplate: $$i$$$$p$$
   
 header-includes:
