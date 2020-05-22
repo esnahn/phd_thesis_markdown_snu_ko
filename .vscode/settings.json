@@ -3,7 +3,6 @@
     "pasteImage.showFilePathConfirmInputBox": true,
     "pasteImage.filePathConfirmInputBoxMode": "onlyName",
     "PandocCiter.ShowLog": true,
-    "pasteImage.basePath": "${projectRoot}/source/figures",
-    "PandocCiter.DefaultBib": "references.bib",
+    "PandocCiter.DefaultBib": "source/references.bib",
     "PandocCiter.ForgetUnusedBib": false,
 }
