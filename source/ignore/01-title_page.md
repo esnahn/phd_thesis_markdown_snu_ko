@@ -8,6 +8,7 @@ ammended for UNSW by Mathew Lipson, 2018
 
 amended by Euisoon Ahn, 2018
 -->
+\pagenumbering{gobble}
 
 \loadgeometry{snutitlegeometry}
 \begin{titlepage}

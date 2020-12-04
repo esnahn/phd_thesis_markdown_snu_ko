@@ -1,3 +1,5 @@
+\cleardoublepage
+
 \loadgeometry{snuapprovalgeometry}
 \pagenumbering{gobble}
 \begin{center}

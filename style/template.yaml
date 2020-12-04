@@ -3,7 +3,7 @@ documentclass: report
 fontsize: 12pt
 classoption:
   - twoside
-  - openany # openright or openany
+  - openright # openright or openany
 
 graphics: true
 

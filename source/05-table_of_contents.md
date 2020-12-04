@@ -1,6 +1,6 @@
-\pagenumbering{gobble}
+<!-- \pagenumbering{gobble} -->
 
 \normalsize
 \tableofcontents
 
-\newpage
+\clearpage

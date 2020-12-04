@@ -1,7 +1,9 @@
+\cleardoublepage
+
 \snunoheaderchapter{초록}
 
 \pagenumbering{roman}
-\setcounter{page}{1}
+<!-- \setcounter{page}{1} -->
 
 \normalsize
 
@@ -17,5 +19,5 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et turpis gravida, 
 
 **학번: 2000-00000**
 
-\newpage
+\clearpage
 <!-- 페이지가 바뀌어야 다음 파일 페이지 번호 양식에 영향받지 않음 -->
