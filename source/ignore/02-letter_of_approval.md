@@ -3,6 +3,8 @@
 \loadgeometry{snuapprovalgeometry}
 \pagenumbering{gobble}
 \begin{center}
+    \vspace*{1cm}
+
     \snutitleHuge
     \snukotitle
 
@@ -52,6 +54,8 @@
         위 \hfill 원           & \committeestyle{\snucommitteememberD}\\[14pt]
         위 \hfill 원           & \committeestyle{\snucommitteememberE}\\
     \end{tabular}
+
+    \vspace*{2cm}
 
 \end{center}
 \restoregeometry
