@@ -48,7 +48,8 @@ tex:
 	-N \
 	--columns=32 --wrap=preserve \
 	--pdf-engine=xelatex \
-	--filter pandoc-crossref
+	--filter pandoc-crossref \
+	--citeproc \
 	
 pdf:
 	pandoc "$(STYLEDIR)/template.yaml" "$(INPUTDIR)/metadata.yaml" "$(INPUTDIR)"/*.md \
@@ -63,6 +64,7 @@ pdf:
 	--columns=32 --wrap=preserve \
 	--pdf-engine=xelatex \
 	--filter pandoc-crossref \
+	--citeproc \
 	&& ls -l "$(OUTPUTDIR)/$(STDNO)-$(FULLNAME)-Thesis.pdf"\
 	|| cat pandoc.log	
 
@@ -76,15 +78,16 @@ md:
 	-N \
 	--pdf-engine=xelatex \
 	--filter pandoc-crossref \
-	# --verbose 
-	
+	--citeproc 
+
 docx:
 	pandoc "$(INPUTDIR)"/*.md \
 	-o "$(OUTPUTDIR)/thesis.docx" \
 	--bibliography="$(BIBFILE)" \
 	--csl="$(STYLEDIR)/apa_ko.csl" \
 	--toc \
-	--filter pandoc-crossref
+	--filter pandoc-crossref \
+	--citeproc \
 
 html:
 	pandoc "$(INPUTDIR)"/*.md \
@@ -97,7 +100,8 @@ html:
 	--toc \
 	--number-sections \
 	--mathjax \
-	--filter pandoc-crossref
+	--filter pandoc-crossref \
+	--citeproc
 	rm -rf "$(OUTPUTDIR)/source"
 	mkdir "$(OUTPUTDIR)/source"
 	cp -r "$(INPUTDIR)/figures" "$(OUTPUTDIR)/source/figures"
