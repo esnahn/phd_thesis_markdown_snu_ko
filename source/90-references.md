@@ -2,12 +2,25 @@
 
 \footnotesize
 
-::: {#refs}
-<!-- 
-Do not edit this page.
+<!-- ::: {#refs}
+::: -->
 
-References are automatically generated here from the BibTex file (References.bib)
+## 단행본 {.unnumbered .unlisted}
 
-...which you should create using your reference manager.
--->
+::: {#refs_book}
+:::
+
+## 학술논문 {.unnumbered .unlisted}
+
+::: {#refs_article}
+:::
+
+## 소프트웨어 {.unnumbered .unlisted}
+
+::: {#refs_software}
+:::
+
+## 기타 {.unnumbered .unlisted}
+
+::: {#refs_etc}
 :::
