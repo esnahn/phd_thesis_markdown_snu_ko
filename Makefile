@@ -20,9 +20,7 @@ help:
 	@echo '                                                                       '
 	@echo 'Usage:                                                                 '
 	@echo '   make template                    rebuild latex template             '
-	@echo '   make html                        generate a web version             '
 	@echo '   make pdf                         generate a PDF file  			  '
-	@echo '   make docx	                       generate a Docx file 			  '
 	@echo '   make tex	                       generate a Latex file 			  '
 	@echo '                                                                       '
 	@echo ' 																	  '
@@ -81,30 +79,4 @@ md:
 	--filter pandoc-crossref \
 	--lua-filter multiple-bibliographies.lua 
 
-docx:
-	pandoc "$(INPUTDIR)"/*.md \
-	-o "$(OUTPUTDIR)/thesis.docx" \
-	--bibliography="$(BIBFILE)" \
-	--csl="$(STYLEDIR)/apa_ko.csl" \
-	--toc \
-	--filter pandoc-crossref \
-	--lua-filter multiple-bibliographies.lua
-
-html:
-	pandoc "$(INPUTDIR)"/*.md \
-	-o "$(OUTPUTDIR)/thesis.html" \
-	--standalone \
-	--template="$(STYLEDIR)/template.html" \
-	--bibliography="$(BIBFILE)" \
-	--csl="$(STYLEDIR)/apa_ko.csl" \
-	--include-in-header="$(STYLEDIR)/style.css" \
-	--toc \
-	--number-sections \
-	--mathjax \
-	--filter pandoc-crossref \
-	--lua-filter multiple-bibliographies.lua
-	rm -rf "$(OUTPUTDIR)/source"
-	mkdir "$(OUTPUTDIR)/source"
-	cp -r "$(INPUTDIR)/figures" "$(OUTPUTDIR)/source/figures"
-
-.PHONY: help pdf docx html tex
+.PHONY: help pdf tex
