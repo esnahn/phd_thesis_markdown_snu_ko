@@ -10,7 +10,15 @@
             "group": {
                 "kind": "build",
                 "isDefault": true
-            }
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "tex",
+            "type": "shell",
+            "command": "make tex",
+            "group": "build",
+            "problemMatcher": []
         }
     ]
 }
