@@ -52,7 +52,8 @@ tex:
 	--lua-filter multiple-bibliographies.lua
 	
 pdf:
-	pandoc "$(STYLEDIR)/template.yaml" "$(INPUTDIR)/metadata.yaml" "$(INPUTDIR)"/*.md \
+	@pandoc \
+	"$(STYLEDIR)/template.yaml" "$(INPUTDIR)/metadata.yaml" "$(INPUTDIR)"/*.md \
 	-o "$(OUTPUTDIR)/$(STDNO)-$(FULLNAME)-Thesis.pdf" \
 	--from=markdown-auto_identifiers \
 	--template="$(STYLEDIR)/template.tex" \
