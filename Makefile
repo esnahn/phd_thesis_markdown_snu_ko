@@ -15,6 +15,10 @@ STYLEDIR=$(BASEDIR)/style
 OUTPUTFILE=$(OUTPUTDIR)/$(STDNO)-$(FULLNAME)-Thesis.pdf
 BIBFILE=$(INPUTDIR)/references.bib
 
+ifneq "$(shell pandoc --version | grep ^pandoc | sed 's/^.* //g')" "$(shell cat pandoc_version)"
+	OLDVER = pandoc_version $(STYLEDIR)/template.tex
+endif
+
 pdf: $(OUTPUTFILE)
 
 tex: $(OUTPUTDIR)/thesis.tex
@@ -26,12 +30,11 @@ help:
 	@echo 'Usage:                                                                 '
 	@echo '   make pdf                         generate a PDF file  			  '
 	@echo '   make tex	                       generate a Latex file 			  '
-	@echo '   make template                    rebuild latex template             '
 	@echo '                                                                       '
 	@echo ' 																	  '
 
 
-$(OUTPUTFILE): $(STYLEDIR)/* $(INPUTDIR)/*
+$(OUTPUTFILE): $(STYLEDIR)/* $(INPUTDIR)/* $(OLDVER)
 	@pandoc \
 	"$(STYLEDIR)/template.yaml" "$(INPUTDIR)/metadata.yaml" "$(INPUTDIR)"/*.md \
 	-o "$@" \
@@ -49,7 +52,7 @@ $(OUTPUTFILE): $(STYLEDIR)/* $(INPUTDIR)/*
 	&& ls -l "$(OUTPUTDIR)/$(STDNO)-$(FULLNAME)-Thesis.pdf"\
 	|| cat pandoc.log
 
-$(OUTPUTDIR)/thesis.tex: $(STYLEDIR)/* $(INPUTDIR)/*
+$(OUTPUTDIR)/thesis.tex: $(STYLEDIR)/* $(INPUTDIR)/* $(OLDVER)
 	pandoc "$(STYLEDIR)/template.yaml" "$(INPUTDIR)/metadata.yaml" "$(INPUTDIR)"/*.md \
 	-o "$@" \
 	--from=markdown-auto_identifiers \
@@ -65,10 +68,12 @@ $(OUTPUTDIR)/thesis.tex: $(STYLEDIR)/* $(INPUTDIR)/*
 	--lua-filter multiple-bibliographies.lua
 
 
-template:
+$(STYLEDIR)/template.tex:
 	pandoc -D latex > "$(STYLEDIR)/default.tex"
-	sed $$'/.*for.*include-before.*/{e cat "$(STYLEDIR)/template.before.tex"\n}' "$(STYLEDIR)/default.tex" > "$(STYLEDIR)/template.tex"
-	sed -i 's/\(usepackage{.*\)grffile/\1/' "$(STYLEDIR)/template.tex"
+	sed $$'/.*for.*include-before.*/{e cat "$(STYLEDIR)/template.before.tex"\n}' "$(STYLEDIR)/default.tex" > "$@"
+	sed -i 's/\(usepackage{.*\)grffile/\1/' "$@"
 
+pandoc_version:
+	pandoc --version | grep ^pandoc | sed 's/^.* //g' > $@
 
-.PHONY: help pdf tex template
+.PHONY: help pdf tex $(OLDVER)
