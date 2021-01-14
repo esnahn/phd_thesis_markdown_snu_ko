@@ -69,15 +69,15 @@
 %%% 추가로 모양 없는 장 만들기
 
 \newcommand{\snunoheaderchapter}[1]{%
-	\makeatletter
-	\if@openright\cleardoublepage\else\clearpage\fi
-	\makeatother
+  \makeatletter
+  \if@openright\cleardoublepage\else\clearpage\fi
+  \makeatother
 
-	\phantomsection
-	\addcontentsline{toc}{chapter}{#1}
-	\begin{center}%
-		\snuhuge\textbf{#1}
-	\end{center}
+  \phantomsection
+  \addcontentsline{toc}{chapter}{#1}
+  \begin{center}%
+    \snuhuge\textbf{#1}
+  \end{center}
 }
 
 %%% 문단 간격 유지
