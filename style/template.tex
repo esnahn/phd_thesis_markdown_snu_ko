@@ -9,6 +9,9 @@ $if(latex-dir-rtl)$
 \PassOptionsToPackage{RTLdocument}{bidi}
 $endif$
 $endif$
+$if(CJKmainfont)$
+\PassOptionsToPackage{space}{xeCJK}
+$endif$
 %
 \documentclass[
 $if(fontsize)$
@@ -86,6 +89,7 @@ $endif$
 $if(beamerarticle)$
 \usepackage{beamerarticle} % needs to be loaded first
 $endif$
+\usepackage{amsmath,amssymb}
 $if(fontfamily)$
 \usepackage[$for(fontfamilyoptions)$$fontfamilyoptions$$sep$,$endfor$]{$fontfamily$}
 $else$
@@ -94,7 +98,6 @@ $endif$
 $if(linestretch)$
 \usepackage{setspace}
 $endif$
-\usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[$if(fontenc)$$fontenc$$else$T1$endif$]{fontenc}
@@ -137,7 +140,7 @@ $endif$
 $endif$
 $if(CJKmainfont)$
   \ifxetex
-    \usepackage[space]{xeCJK}
+    \usepackage{xeCJK}
     \setCJKmainfont[$for(CJKoptions)$$CJKoptions$$sep$,$endfor$]{$CJKmainfont$}
   \fi
 $endif$
@@ -251,7 +254,11 @@ $if(highlighting-macros)$
 $highlighting-macros$
 $endif$
 $if(tables)$
-\usepackage{longtable,booktabs}
+\usepackage{longtable,booktabs,array}
+$if(multirow)$
+\usepackage{multirow}
+$endif$
+\usepackage{calc} % for calculating minipage widths
 $if(beamer)$
 \usepackage{caption}
 % Make caption package work with longtable
@@ -325,17 +332,23 @@ $if(lang)$
 \ifxetex
   % Load polyglossia as late as possible: uses bidi with RTL langages (e.g. Hebrew, Arabic)
   \usepackage{polyglossia}
-  \setmainlanguage[$polyglossia-lang.options$]{$polyglossia-lang.name$}
+  \setmainlanguage[$for(polyglossia-lang.options)$$polyglossia-lang.options$$sep$,$endfor$]{$polyglossia-lang.name$}
 $for(polyglossia-otherlangs)$
-  \setotherlanguage[$polyglossia-otherlangs.options$]{$polyglossia-otherlangs.name$}
+  \setotherlanguage[$for(polyglossia-otherlangs.options)$$polyglossia-otherlangs.options$$sep$,$endfor$]{$polyglossia-otherlangs.name$}
 $endfor$
 \else
-  \usepackage[shorthands=off,$for(babel-otherlangs)$$babel-otherlangs$,$endfor$main=$babel-lang$]{babel}
+  \usepackage[$for(babel-otherlangs)$$babel-otherlangs$,$endfor$main=$babel-lang$]{babel}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
 $if(babel-newcommands)$
   $babel-newcommands$
 $endif$
 \fi
 $endif$
+\ifluatex
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
 $if(dir)$
 \ifxetex
   % Load bidi as late as possible as it modifies e.g. graphicx
@@ -381,6 +394,9 @@ $if(csl-refs)$
 \newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
 \newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 $endif$
+$if(csquotes)$
+\usepackage{csquotes}
+$endif$
 
 $if(title)$
 \title{$title$$if(thanks)$\thanks{$thanks$}$endif$}
@@ -397,9 +413,7 @@ $else$
 $endif$
 \subtitle{$subtitle$}
 $endif$
-$if(author)$
 \author{$for(author)$$author$$sep$ \and $endfor$}
-$endif$
 \date{$date$}
 $if(beamer)$
 $if(institute)$
@@ -491,7 +505,7 @@ $if(toc-title)$
 \renewcommand*\contentsname{$toc-title$}
 $endif$
 $if(beamer)$
-\begin{frame}
+\begin{frame}[allowframebreaks]
 $if(toc-title)$
   \frametitle{$toc-title$}
 $endif$
