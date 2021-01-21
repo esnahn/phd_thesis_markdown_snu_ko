@@ -48,7 +48,9 @@ $(OUTPUTFILE): $(STYLEDIR)/* $(INPUTDIR)/* $(OLDVER)
 	--columns=32 --wrap=preserve \
 	--pdf-engine=xelatex \
 	--filter pandoc-crossref \
+	--citeproc \
 	--lua-filter multiple-bibliographies.lua \
+	--lua-filter shortcaptions.lua \
 	&& ls -l "$(OUTPUTDIR)/$(STDNO)-$(FULLNAME)-Thesis.pdf"\
 	|| cat pandoc.log
 
@@ -65,7 +67,9 @@ $(OUTPUTDIR)/thesis.tex: $(STYLEDIR)/* $(INPUTDIR)/* $(OLDVER)
 	--columns=32 --wrap=preserve \
 	--pdf-engine=xelatex \
 	--filter pandoc-crossref \
-	--lua-filter multiple-bibliographies.lua
+	--citeproc \
+	--lua-filter multiple-bibliographies.lua \
+	--lua-filter shortcaptions.lua
 
 
 $(STYLEDIR)/template.tex:
