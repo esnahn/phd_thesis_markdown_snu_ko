@@ -19,7 +19,7 @@ ifneq "$(shell pandoc --version | grep ^pandoc | sed 's/^.* //g')" "$(shell cat 
 	OLDVER = pandoc_version $(STYLEDIR)/template.tex
 endif
 
-pdf: $(OUTPUTFILE)
+pdf: build_timestamp
 
 tex: $(OUTPUTDIR)/thesis.tex
 
@@ -34,10 +34,11 @@ help:
 	@echo ' 																	  '
 
 
-$(OUTPUTFILE): $(STYLEDIR)/* $(INPUTDIR)/* $(OLDVER)
+build_timestamp: $(STYLEDIR)/* $(INPUTDIR)/* $(OLDVER)
+	@touch build_timestamp
 	@pandoc \
 	"$(STYLEDIR)/template.yaml" "$(INPUTDIR)/metadata.yaml" "$(INPUTDIR)"/*.md \
-	-o "$@" \
+	-o "$(OUTPUTFILE)" \
 	--from=markdown-auto_identifiers \
 	--template="$(STYLEDIR)/template.tex" \
 	--bibliography="$(BIBFILE)" 2>pandoc.log \
@@ -51,7 +52,7 @@ $(OUTPUTFILE): $(STYLEDIR)/* $(INPUTDIR)/* $(OLDVER)
 	--citeproc \
 	--lua-filter multiple-bibliographies.lua \
 	--lua-filter shortcaptions.lua \
-	&& ls -l "$(OUTPUTDIR)/$(STDNO)-$(FULLNAME)-Thesis.pdf"\
+	&& ls -l "$(OUTPUTFILE)"\
 	|| cat pandoc.log
 
 $(OUTPUTDIR)/thesis.tex: $(STYLEDIR)/* $(INPUTDIR)/* $(OLDVER)
@@ -81,3 +82,5 @@ pandoc_version:
 	pandoc --version | grep ^pandoc | sed 's/^.* //g' > $@
 
 .PHONY: help pdf tex $(OLDVER)
+
+.DELETE_ON_ERROR: build_timestamp
