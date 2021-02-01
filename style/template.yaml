@@ -7,9 +7,10 @@ classoption:
 
 graphics: true
 
+# A4 출력시
+# geometry: paper = a4paper
 # JIS B5 출력시
-# geometry: paper = b5j
-geometry: paper = a4paper
+geometry: paper = b5j
 
 linestretch: 1.3
 # indent: true
