@@ -16,7 +16,7 @@ amended by Euisoon Ahn, 2018
         \snularge
         \snukodegree 학위논문
 
-        \vspace{2cm}
+        \vfill
 
         \snutitleHuge
         \snukotitle
@@ -29,6 +29,7 @@ amended by Euisoon Ahn, 2018
         \snuhuge
         \snuentitle
 
+        \vfill
         \vfill
         \vfill
         \vfill
@@ -47,6 +48,8 @@ amended by Euisoon Ahn, 2018
 
         \snuhuge
         \snukoauthorrun
+    
+        \vspace{0.5cm}
         
     \end{center}
 \end{titlepage}
