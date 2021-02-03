@@ -1,5 +1,5 @@
-<!-- 동의서는 심사위원 전원이 날인된 논문 1부에만 부착하기 때문에 한번만 별도로 출력하면 됨. -->
-
+<!-- 온라인 제출로 변경되면서 동의서는 필요없음 -->
+<!-- 
 \cleardoublepage
 
 \makeatletter
@@ -11,4 +11,5 @@
   ]{source/ThesisDissertationAgreement.pdf}
 \makeatother
 
-\pagenumbering{gobble}
+\pagenumbering{gobble} 
+-->
