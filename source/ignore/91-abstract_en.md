@@ -5,7 +5,7 @@
 \snunoheaderchapter{Abstract}
 
 \begin{center}
-\snutitleHuge
+\snutitlelarge
 \snuentitle
 \end{center}
 
