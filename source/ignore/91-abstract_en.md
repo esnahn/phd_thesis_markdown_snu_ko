@@ -2,6 +2,8 @@
 <!-- :::lang=en -->
 <!-- fenced_divs don't work exactly like real divs? -->
 
+\cleardoublepage
+
 \snunoheaderchapter{Abstract}
 
 \begin{center}
