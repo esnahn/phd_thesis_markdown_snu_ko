@@ -12,7 +12,9 @@ OUTPUTDIR=$(BASEDIR)/output
 TEMPLATEDIR=$(INPUTDIR)/templates
 STYLEDIR=$(BASEDIR)/style
 
-OUTPUTFILE=$(OUTPUTDIR)/$(STDNO)-$(FULLNAME)-Thesis.pdf
+# filename based on git branch
+BRANCH := $(shell git rev-parse --abbrev-ref HEAD)
+OUTPUTFILE=$(OUTPUTDIR)/$(FULLNAME)-Thesis-$(BRANCH).pdf
 
 ifneq "$(shell pandoc --version | grep ^pandoc | sed 's/^.* //g')" "$(shell cat pandoc_version)"
 	OLDVER = pandoc_version $(STYLEDIR)/template.tex
@@ -33,7 +35,7 @@ help:
 	@echo ' 																	  '
 
 
-build_timestamp: $(STYLEDIR)/* $(INPUTDIR)/* $(OLDVER)
+build_timestamp: $(STYLEDIR)/* $(INPUTDIR)/* $(OLDVER) Makefile
 	@touch build_timestamp
 	@pandoc \
 	"$(STYLEDIR)/template.yaml" "$(INPUTDIR)/metadata.yaml" "$(INPUTDIR)"/*.md \
@@ -54,18 +56,13 @@ build_timestamp: $(STYLEDIR)/* $(INPUTDIR)/* $(OLDVER)
 	&& ls -l "$(OUTPUTFILE)"\
 	|| cat pandoc.log
 
-$(OUTPUTDIR)/thesis.tex: $(STYLEDIR)/* $(INPUTDIR)/* $(OLDVER)
+$(OUTPUTDIR)/thesis.tex: $(STYLEDIR)/* $(INPUTDIR)/* $(OLDVER) Makefile
 	pandoc "$(STYLEDIR)/template.yaml" "$(INPUTDIR)/metadata.yaml" "$(INPUTDIR)"/*.md \
 	-o "$@" \
 	--from=markdown-auto_identifiers \
 	--template="$(STYLEDIR)/template.tex" \
-<<<<<<< HEAD
-	--bibliography="$(BIBFILE)" 2>pandoc.log \
-	--csl="$(STYLEDIR)/apa_ko.csl" \
-=======
 	2>pandoc.log \
-	--csl="$(STYLEDIR)/apa_ko_full.csl" \
->>>>>>> 76224cc... remove bibliography option from command
+	--csl="$(STYLEDIR)/apa_ko.csl" \
 	--highlight-style pygments \
 	--top-level-division=chapter \
 	-N \
