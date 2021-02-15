@@ -17,7 +17,7 @@ Ctrl+Alt+V
 
 ![test3](paste2.png){height=20%}
 
-<div id="fig:">
+<div id="fig:testA">
 
 ![subfigure 1 caption](paste.png){height=20%} \qquad
 ![subfigure 2 caption](paste2.png){height=20% #fig:testB}
@@ -30,7 +30,7 @@ Caption of figure
 
 [@fig:testB]처럼 인용
 
-<div id="fig:">
+<div id="fig:testC">
 
 ![test4](floorplan.jpg){height=25%} \qquad
 ![test4](floorplan_processed.pdf){height=25%}
